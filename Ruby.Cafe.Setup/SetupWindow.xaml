@@ -1,0 +1,12 @@
+﻿<Window x:Class="Ruby.Setup.SetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ruby.Setup"
+        mc:Ignorable="d"
+        Title="SetupWindow" Height="600" Width="1080" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal">
+    <Grid>
+        <TextBlock Opacity="0" FontFamily="Lucida Bright" Foreground="Gray" x:Name="WelcomeText" Text="Welcome to RubySoft" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="41" Loaded="WelcomeText_Loaded" TextWrapping="Wrap"/>
+    </Grid>
+</Window>

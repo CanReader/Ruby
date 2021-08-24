@@ -1,0 +1,62 @@
+﻿<Page x:Class="Ruby.Cafe.Common.Screens.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Ruby.Cafe.Common"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="LoginPage" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#CECECE">
+    <Grid>
+            <Rectangle Width="120" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" MouseDown="ReturnBack">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_ColoredReturnBtn.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Viewbox Margin="120">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40,0,0,0">
+        <StackPanel x:Name="LogInPanel" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#CECECE">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="LoginTitle" Text="Login Panel" Margin="0,0,0,15" TextAlignment="Center" FontSize="30"/>
+                <TextBox x:Name="AcessCodeTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="19" FontFamily="{Binding}" Width="160"/>
+                        <Button  x:Name="AcessToPanelBtn" Content="Login" HorizontalContentAlignment="Center" FontSize="15" Margin="5,20,5,0" FontFamily="{Binding}" Click="RedirectTo"/>
+                
+                <TextBlock x:Name="ErrorText" Text="{Binding}" Margin="0,12,0,0" TextAlignment="Center" FontFamily="{Binding}" Foreground="Red"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Numpad" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40,50,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button FontSize="18" Grid.Row="0" Grid.Column="0" Click="NumpadUsed">1</Button>
+                <Button FontSize="18" Grid.Row="0" Grid.Column="1" Click="NumpadUsed">2</Button>
+                <Button FontSize="18" Grid.Row="0" Grid.Column="2" Click="NumpadUsed">3</Button>
+                <Button FontSize="18" Grid.Row="1" Grid.Column="0" Click="NumpadUsed">4</Button>
+                <Button FontSize="18" Grid.Row="1" Grid.Column="1" Click="NumpadUsed">5</Button>
+                <Button FontSize="18" Grid.Row="1" Grid.Column="2" Click="NumpadUsed">6</Button>
+                <Button FontSize="18" Grid.Row="2" Grid.Column="0" Click="NumpadUsed">7</Button>
+                <Button FontSize="18" Grid.Row="2" Grid.Column="1" Click="NumpadUsed">8</Button>
+                <Button FontSize="18" Grid.Row="2" Grid.Column="2" Click="NumpadUsed">9</Button>
+                <Button FontSize="18" Grid.Row="3" Grid.Column="1" Click="NumpadUsed">0</Button>
+                    <Rectangle Grid.Row="5" Grid.ColumnSpan="3" Margin="0,5,5,5" MouseDown="DeleteChar">
+                        <Rectangle.Fill>
+                                <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_Delete_Text.png" Stretch="Uniform"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+        </StackPanel>
+            </StackPanel>
+        </Viewbox>
+    </Grid>
+</Page>

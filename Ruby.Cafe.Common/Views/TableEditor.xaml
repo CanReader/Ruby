@@ -1,0 +1,116 @@
+﻿<Page x:Class="Ruby.Cafe.Common.Screens.TableEditor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:local="clr-namespace:Ruby.Cafe.Common.Screens"
+       xmlns:controls="clr-namespace:Ruby.Cafe.Common.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Table Editor" Background="#CECECE" UseLayoutRounding="False" Loaded="Page_Loaded">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineTextbox.xaml"/>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineButton.xaml"/>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineComboBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid x:Name="Content" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Stretch">
+            <Border  Margin="40" BorderThickness="2" BorderBrush="#FFCCCCCC">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="ScenceText" Text="Create A Scence" TextAlignment="Center" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Margin="0,0,0,0" TextWrapping="Wrap"/>
+                    <Rectangle HorizontalAlignment="Center" Height="80" Width="80" MouseDown="ShowPreviousScence">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_TEPreviousScence.png" Stretch="Uniform"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle HorizontalAlignment="Center" Height="80" Width="80" Grid.Column="2" MouseDown="ShowNextScence">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_TENextScence.png" Stretch="Uniform">
+                            </ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+            <ListBox x:Name="TableLister" VerticalAlignment="Stretch" Margin="120,150,120,40" BorderBrush="#525359" BorderThickness="2" SelectionChanged="TableLister_SelectionChanged" HorizontalContentAlignment="Center" FontSize="33">
+                </ListBox>
+            <Grid Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="20,40,0,45">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" Grid.Row="0">
+                <TextBox x:Name="TableNameBox" Text="Table Name" MaxLength="24" Padding="0,0,0,3" Height="50"/>
+                
+                    <ComboBox x:Name="TableScence" VerticalContentAlignment="Center" IsEditable="True" Margin="90,0,50,0" HorizontalAlignment="Right" Text="Choose a scence" DropDownOpened="TableScence_DropDownOpened" FontSize="17" Height="50"/>
+                </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1">
+                <TextBlock x:Name="ColorPickerText" Text="Color Picker" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+                <xtk:ColorPicker x:Name="Picker" Width="200" Height="50" Margin="25,0,20,0" UsingAlphaChannel="False" ShowAvailableColors="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0"  Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="2">
+                <ComboBox x:Name="TableTypeBox" Margin="30,0,0,0" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" Text="Table Type"/>
+
+                <TextBox Margin="50,0,0,0" x:Name="ChairNumberBox" Text="Max Number" MaxLength="2" Height="50" Padding="0,0,0,1"/>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0"  Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="3">
+                    <CheckBox x:Name="IsEnable"  IsChecked="True"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Margin="20,0,0,0"  FontSize="14" ClickMode="Press" BorderThickness="1" Height="18" Width="82">
+                        Enabled
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <CheckBox x:Name="IsLock" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Margin="10,0,0,0" FontSize="14" ClickMode="Press" BorderThickness="1" Height="18" Width="82">
+                        Lock
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <CheckBox x:Name="IsReservable"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Margin="10,0,0,0"  FontSize="14" ClickMode="Press" BorderThickness="1" Height="18" Width="89">
+                        Reservable
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                </StackPanel>
+            <Grid Margin="0,30,0,0"  Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                <Button x:Name="CreateTableBtn" Content="Create Table" Click="CreateTable" />
+                <Button x:Name="EditTableBtn" Content="Edit Table" Click="EditTable" Grid.Column="1"/>
+                <Button x:Name="RemoveTableBtn" Content="Remove Table" Click="RemoveTable" Grid.Column="2"/>
+                </Grid>
+            <Grid Margin="0,0,0,0"  Grid.Column="1" VerticalAlignment="Bottom" Grid.Row="5">
+                <TextBox x:Name="ScenceName" Text="Scence Name" MaxLength="15"/>
+                </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0"  Grid.Column="1" VerticalAlignment="Bottom" Grid.Row="6" HorizontalAlignment="Center">
+                <Button x:Name="AddScenceBtn" Content="Add Scence" Click="CreateScence" Margin="0,0,50,0"/>
+                <Button x:Name="RemoveScenceBtn" Content="Remove Scence" Click="RemoveScence"/>
+                </StackPanel>
+            </Grid>
+           
+        </Grid>
+</Page>

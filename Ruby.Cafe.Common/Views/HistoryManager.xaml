@@ -1,0 +1,113 @@
+﻿<Page x:Class="Ruby.Cafe.Common.Screens.HistoryManager"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Compatible;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:dvcp="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:Controls="clr-namespace:Ruby.Cafe.Common.Controls"
+      xmlns:local="clr-namespace:Ruby.Cafe.Common.Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="HistoryManager" Loaded="Page_Loaded" Unloaded="Page_Unloaded" Background="#CECECE">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <!-- Criterias are over here-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both" Width="240" Margin="0,10,0,0">
+                        <DatePicker x:Name="Dater" SelectedDateChanged="CriteriaChanged"/>
+                    </Viewbox>
+                    <Button x:Name="CriteriaCleaner" Content="Clear Criteria" HorizontalAlignment="Center" Margin="0,50,0,0" Click="Button_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#2A99FB"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="25"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="#2A99FB" Background="#2A99FB" BorderThickness="0" CornerRadius="8">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <ComboBox x:Name="EmployeeCriteriaBox" Margin="40,20,40,0" FontSize="22" IsEditable="True" HorizontalContentAlignment="Center" VerticalAlignment="Center" DropDownOpened="EmployeeCriteriaBox_DropDownOpened" SelectionChanged="CriteriaChanged"/>
+                    <ComboBox x:Name="TypeCriteriaBox" Margin="40,120,40,0" FontSize="22" IsEditable="True" HorizontalContentAlignment="Center" VerticalAlignment="Center" DropDownOpened="TypeCriteriaBox_DropDownOpened" SelectionChanged="CriteriaChanged"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Vertical">
+                    <ComboBox x:Name="TableCriteriaBox" Margin="40,20,40,0" FontSize="22" IsEditable="True" HorizontalContentAlignment="Center" VerticalAlignment="Center" DropDownOpened="TableCriteriaBox_DropDownOpened" SelectionChanged="CriteriaChanged"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Orientation="Vertical">
+                    <ComboBox x:Name="ProductCriteriaBox" Margin="40,20,40,0" FontSize="22" IsEditable="True" HorizontalContentAlignment="Center" VerticalAlignment="Center" DropDownOpened="ProductCriteriaBox_DropDownOpened" SelectionChanged="CriteriaChanged"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <!-- Notif cards are over here -->
+                <Grid Grid.Row="0" Margin="50,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Controls:HistoryCard x:Name="TotalSalesCard" PropertyName="Total Sales" PropertyValue="0" Grid.Column="0" CardTheme="0"/>
+                    <Controls:HistoryCard x:Name="ActiveTablesCard" PropertyName="Active Tables" PropertyValue="0" Grid.Column="1" CardTheme="1"/>
+                    <Controls:HistoryCard x:Name="TotalSoldProducts" PropertyName="Total Sold Products" PropertyValue="0" Grid.Column="2" CardTheme="2"/>
+                </Grid>
+                <!-- Graphs are over here -->
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <dvc:ColumnSeries x:Name="CSeries">
+                    </dvc:ColumnSeries>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0,15,50,0" VerticalAlignment="Top">
+            <TextBlock x:Name="Date" Text="Date" Margin="0,0,0,0" FontSize="42"/>
+            <TextBlock Text="-" Margin="20,0,20,0" FontSize="42"/>
+            <TextBlock x:Name="Clock" Text="Time" FontSize="42"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Background="DeepSkyBlue" Margin="0,90,40,30"/>
+        <ListBox x:Name="HistoryViewer" Grid.Column="1" Margin="0,110,40,30" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock FontSize="21" Text="{Binding}" TextWrapping="Wrap"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            </ListBox>
+    </Grid>
+</Page>

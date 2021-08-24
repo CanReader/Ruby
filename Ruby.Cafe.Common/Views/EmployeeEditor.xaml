@@ -1,0 +1,103 @@
+﻿<Page x:Class="Ruby.Cafe.Common.Screens.EmployeeEditor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ruby.Cafe.Common.Screens"
+      xmlns:controls="clr-namespace:Ruby.Cafe.Common.Controls"
+      xmlns:wpfe="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+     mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="HistoryManager" Background="#CECECE" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineTextbox.xaml"/>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineButton.xaml"/>
+                <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineComboBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineTextbox.xaml"/>
+                    <ResourceDictionary Source="/Ruby.Cafe.Common;component/Css/OutlineComboBox.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid x:Name="Container">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="0" BorderBrush="#707070" BorderThickness="2" x:Name="EmployeeList" Margin="20,30,20,35" FontSize="24" SelectionChanged="EmployeeChanged"  />
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Margin="10,80,0,0">
+                    <TextBox Margin="0,0,50,0" HorizontalAlignment="Center" x:Name="EmployeeNameBox"  Text="Employee Name" GotFocus="GotFocus" LostFocus="LostFocus" MaxLength="18"/>
+                    <TextBox HorizontalAlignment="Center" x:Name="EmployeeSurnameBox" VerticalAlignment="Center" Text="Employee Surname"  GotFocus="GotFocus" LostFocus="LostFocus" MaxLength="16"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="1" Margin="10,40,0,0">
+                    <ComboBox x:Name ="EmployeeGenderBox" Text="Gender" IsEditable="True" IsReadOnly="True" FontSize="26" Width="220"/>
+                    <Viewbox Width="380"  Margin="30,0,0,0">
+                        <DatePicker x:Name="EmployeeStartDateBox" Text="Start Date"  Height="30" Width="210" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Viewbox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="1" Margin="10,40,0,0">
+                    <TextBox x:Name="EmployeeMailBox"  Margin="0,0,0,0" GotFocus="GotFocus" LostFocus="LostFocus" Text="Employee Mail"/>
+                    <TextBox x:Name="EmployeePhoneBox" Width="220" Margin="60,0,0,0" GotFocus="GotFocus" LostFocus="LostFocus" Text="Employee phone" MaxLength="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="1" Margin="10,40,0,0">
+                    <TextBox x:Name="EmployeeAdressBox" FontSize="19" Text="Employee Adress" Height="300" Width="287" Margin="0,0,0,0" GotFocus="GotFocus" LostFocus="LostFocus" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" HorizontalScrollBarVisibility="Hidden">
+                    </TextBox>
+                    <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                        <TextBox x:Name="AuthBox" Width="230" HorizontalContentAlignment="Center" FontSize="36" Height="100" Margin="50,50,10,0" GotFocus="GotFocus" LostFocus="LostFocus" Text="Auth Code" MaxLength="4">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid>
+                                                    <Border BorderBrush="#FF595959" BorderThickness="2" CornerRadius="6" Background="Transparent" Height="60"  VerticalAlignment="Center" Padding="0,0,5,0" Opacity="0.7" x:Name="PART_ContentHost"/>
+
+                                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.6"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <Viewbox >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Margin="0,80,0,0">
+
+                    <Button x:Name="EmployeAdder" Content="Add Employee" HorizontalAlignment="Right" Margin="0,20,0,30" Click="AddEmployeeBtn" />
+
+                    <Button x:Name="EmployeeEditer" Content="Edit Employee" HorizontalAlignment="Right" FontSize="23"  Margin="40,20,0,30" Click="EditEmployeeBtn"/>
+
+                    <Button x:Name="EmployeRemover" Content="Remove Employee" HorizontalAlignment="Right" Width="200" FontSize="23"  Margin="40,20,0,30" Click="RemoveEmployeeBtn"/>
+
+                </StackPanel>
+                </Viewbox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                <TextBox HorizontalAlignment="Center" x:Name="RoleNameBox" Grid.Column="2" Margin="0,30,0,50" Text="Role Name" Width="220" GotFocus="GotFocus" LostFocus="LostFocus" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Vertical " HorizontalAlignment="Stretch">
+                        <Button x:Name="RoleAdder" Content="Add Role" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="34" Margin="80,100,0,30" Click="AddRoleBtn"/>
+                        <Button x:Name="RoleRemover" Content="Remove Role" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="29" Margin="80,0,0,30" Click="RemoveRoleBtn"/>
+                    </StackPanel>
+                    <ListBox x:Name="PermissionLister" Width="300" HorizontalAlignment="Center" Margin="40,0,0,0">
+                    </ListBox>
+                </StackPanel>
+                <ListBox x:Name="RolesListbox" Height="440" BorderThickness="1" BorderBrush="#454545" Margin="80,20,100,30" SelectionChanged="RoleChanged">
+                </ListBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+    <!-- All of's container -->
+</Page>

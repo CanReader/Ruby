@@ -1,0 +1,67 @@
+﻿<Page x:Class="Ruby.Setup.Views.DatabaseSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ruby.Setup.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1080"
+      Title="DatabaseSettings" Background="White">
+
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineTextBox.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid VerticalAlignment="Top" Height="100">
+            <TextBlock x:Name="PageTitle" Text="Database Settings" FontSize="38" FontFamily="Palatino Linotype" FontStyle="Italic" Background="Transparent" VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <Separator Margin="50,0,50,0" VerticalAlignment="Bottom"  BorderBrush="#707070"/>
+        </Grid>
+        <Grid x:Name="Content" Margin="0,100,0,0">
+            <ComboBox x:Name="DBTypeBox" Text="Database Type" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="50,50,0,0"  Width="170" SelectionChanged="TypeChanged" IsEditable="True">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>Sql</ComboBoxItem>
+                <ComboBoxItem>MySql</ComboBoxItem>
+                <ComboBoxItem>SqlLite</ComboBoxItem>
+                <ComboBoxItem>Oracle</ComboBoxItem>
+            </ComboBox>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="DefServerNameTxt" Text="Server Name:" Margin="0,0,50,0" FontSize="22" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ServerNameBox"  Width="200" HorizontalContentAlignment="Left" TextChanged="TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock x:Name="DefDatabaseNameTxt" Text="Database Name:" FontSize="22" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <TextBox x:Name="DatabaseNameBox" Width="200" HorizontalContentAlignment="Left" TextChanged="TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock x:Name="DefUserNameTxt" Text="User Name:" FontSize="22" VerticalAlignment="Center" Margin="0,0,68,0"/>
+                    <TextBox x:Name="UserNameBox" Width="200" HorizontalContentAlignment="Left" TextChanged="TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock x:Name="DefPasswordTxt" Text="Password:" FontSize="22" VerticalAlignment="Center" Margin="0,0,85,0"/>
+                    <TextBox x:Name="PasswordBox" Width="200" HorizontalContentAlignment="Left" TextChanged="TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <TextBlock x:Name="ConnectionStringTxt" Text="Connection String = {0}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontSize="18" Margin="30,0,300,30" TextWrapping="Wrap"/>
+        <Button x:Name="NextBtn" Content="Next ->" Click="NextPage">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#6D3CD0"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="Padding" Value="12,8,12,8"/>
+                    <Setter Property="Margin" Value="20"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>

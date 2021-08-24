@@ -1,0 +1,55 @@
+﻿<Page x:Class="Ruby.Cafe.Common.Screens.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ruby.Cafe.Common.Screens"
+      mc:Ignorable="d"
+        Title="MainWindow" Background="GhostWhite" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="1920" Height="1080" Unloaded="Page_Unloaded">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="UpperPanel" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Loaded="CreatedEvent" Grid.Row="0">
+            <Grid.Resources>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.17" Color="#40508d"/>
+                    <GradientStop Offset="0.50" Color="#526096"/>
+                    <GradientStop Offset="1.10" Color="#40508d"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Rectangle Width="90" Height="90" Margin="10,5,0,6" x:Name="AdminPanelBtn" HorizontalAlignment="Left" Grid.Column="0" MouseDown="EnterPanel">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_AdminPanel.png"  Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="96" Height="97" Margin="10,2,0,1" x:Name="PrevScenceBtn" HorizontalAlignment="Left" Grid.Column="1" MouseDown="PrevScenceBtn_MouseDown">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_PreviousScence.png"  Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <!-- Scence name less than 20 characters-->
+            <TextBlock x:Name="ScenceNameText" HorizontalAlignment="Stretch" Text="Scence Name" Foreground="Black" FontSize="60" Visibility="Visible" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Margin="116,0,116,0"/>
+            <Rectangle Width="96" Height="97" Margin="0,0,10,1" x:Name="NextScenceBtn" HorizontalAlignment="Right" Grid.Column="1" MouseDown="NextScenceBtn_MouseDown">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_NextScence.png" Stretch="Uniform" />
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="80" Margin="0,10,8,10" x:Name="CloseAppBtn" HorizontalAlignment="Right" Grid.Column="2" MouseDown="SendQuitMessage">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_PowerOff.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+        <Canvas x:Name="TablePanel" Width="Auto" Height="Auto" Grid.Row="1">
+                </Canvas>
+    </Grid>
+</Page>

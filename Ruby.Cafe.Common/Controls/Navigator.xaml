@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Ruby.Cafe.Common.Controls.Navigator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:uccuston="clr-namespace:Ruby.Cafe.Common.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" Width="1517" Loaded="Navigator_Loaded">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <Grid Background="#CECECE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle x:Name="ReturnBtn" Width="100" Height="100" Margin="10" MouseDown="Return" MouseEnter="ReturnMouseEnter" MouseLeave="ReturnMouseLeave" Grid.Column="0">
+            <Rectangle.Fill>
+                <!-- /Ruby.Cafe.Common;component/IMG/IMG_UI_ReturnBtn.png -->
+                <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_ColoredReturnBtn.png" Stretch="Fill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <uccuston:ButtonCard x:Name="TableEditorCard"        VerticalAlignment="Center"     Margin="15,0,0,0"     MouseDown="TableCard_MouseDown"        TTitle="TableEditorText"         Grid.Column="1" />
+        <uccuston:ButtonCard x:Name="EmployeeEditorCard"     VerticalAlignment="Center"     Margin="15,0,0,0"     MouseDown="EmployeeCard_MouseDown"     TTitle="Employee Editor"      Grid.Column="2"/>
+        <uccuston:ButtonCard x:Name="HistoryManagerCard"     VerticalAlignment="Center"     Margin="15,0,0,0"     MouseDown="HistoryCard_MouseDown"      TTitle="History Manager"      Grid.Column="3"/>
+        <uccuston:ButtonCard x:Name="ProductEditorCard"      VerticalAlignment="Center"     Margin="15,0,0,0"     MouseDown="ProductCard_MouseDown"      TTitle="Product Editor"       Grid.Column="4"/>
+
+        <Rectangle  x:Name="SettingsBtn" HorizontalAlignment="Center" Width="115" Height="115" MouseEnter="SettingsMouseEnter" MouseLeave="SettingsMouseLeave" MouseDown="OpenSettings" Grid.Column="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_SettingsBtn.png" Stretch="Fill" TileMode="None" RenderOptions.EdgeMode="Aliased" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

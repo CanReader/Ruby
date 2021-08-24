@@ -1,0 +1,22 @@
+﻿<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Name="OutlineButton">
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="#2A99FB"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Width" Value="155"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderBrush="#2A99FB" Background="#2A99FB" BorderThickness="0" CornerRadius="4">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

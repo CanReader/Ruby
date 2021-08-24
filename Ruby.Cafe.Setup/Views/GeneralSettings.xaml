@@ -1,0 +1,77 @@
+﻿<Page x:Class="Ruby.Setup.Views.GeneralSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ruby.Setup"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1080"
+      Title="GeneralSettings" Background="White">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineTextBox.xaml"/>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineComboBox.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid VerticalAlignment="Top" Height="100">
+            <TextBlock x:Name="PageTitle" Text="General Settings" FontSize="38" FontFamily="Palatino Linotype" FontStyle="Italic" Background="Transparent" VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <Separator Margin="50,0,50,0" VerticalAlignment="Bottom"  BorderBrush="#707070"/>
+        </Grid>
+        <Grid x:Name="Content" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,130,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="MachNameDefTxt" VerticalAlignment="Center" FontSize="22" Text="Machine Name: " Margin="0,0,20,0" Foreground="SlateGray"/>
+                    <TextBox x:Name="MachNameBox" Text="" Width="200"/>
+                </StackPanel>
+                <CheckBox x:Name="Option1Box" Content="Start RubyCafe with machine" Margin="0,20,0,0" FontSize="20" Foreground="SlateGray"/>
+                <CheckBox x:Name="Option2Box" Content="Show close button in the main page" Margin="0,20,0,0" FontSize="20" Foreground="SlateGray"/>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock x:Name="DefWidthTxt" VerticalAlignment="Center" FontSize="22" Text="Width: " Margin="0,0,20,0" Foreground="SlateGray"/>
+                    <TextBox x:Name="WidthBox" Text=""  Width="150" MaxLength="4" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock x:Name="DefHeightTxt" VerticalAlignment="Center" FontSize="22" Text="Height: " Margin="0,0,20,0" Foreground="SlateGray"/>
+                    <TextBox x:Name="HeightBox" MaxLength="4" Width="150"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="DefOrgNameTxt" VerticalAlignment="Center" FontSize="22" Text="Organization Name: " Margin="0,0,20,0" Foreground="SlateGray"/>
+                    <TextBox x:Name="OrgNameBox" Width="170"/>
+                </StackPanel>
+                <ComboBox Style="{x:Null}" x:Name="OrgTypeBox" Text="Organization Type" Margin="0,20,0,0" IsEditable="True" Width="200" FontSize="19">
+                    <ComboBoxItem>Cafe</ComboBoxItem>
+                    <ComboBoxItem>Restaurant</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Style="{x:Null}" IsEditable="True" x:Name="LanguageBox" Text="Language" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,20,0,0" Width="200" FontSize="19">
+                    <ComboBoxItem>English</ComboBoxItem>
+                    <ComboBoxItem>Türkçe</ComboBoxItem>
+                    <ComboBoxItem>Français</ComboBoxItem>
+                    <ComboBoxItem>Deutsche</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Button x:Name="NextBtn" Content="Next ->" Click="NextPage">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#6D3CD0"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="Padding" Value="12,8,12,8"/>
+                    <Setter Property="Margin" Value="20"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>

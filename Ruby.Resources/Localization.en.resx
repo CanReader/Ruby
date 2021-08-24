@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EmployeeEditor_DefaultAddEmpBtnTxt" xml:space="preserve">
+    <value>Add Employee</value>
+  </data>
+  <data name="EmployeeEditor_DefaultAdressBoxTxt" xml:space="preserve">
+    <value>Adress</value>
+  </data>
+  <data name="EmployeeEditor_DefaultAuthCodeBoxTxt" xml:space="preserve">
+    <value>Auth Code</value>
+  </data>
+  <data name="EmployeeEditor_DefaultDateBoxTxt" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="EmployeeEditor_DefaultEditEmpBtnTxt" xml:space="preserve">
+    <value>Edit Employee</value>
+  </data>
+  <data name="EmployeeEditor_DefaultGenderFemaleTxt" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="EmployeeEditor_DefaultGenderMaleTxt" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="EmployeeEditor_DefaultGenderOtherTxt" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="EmployeeEditor_DefaultGendertBoxTxt" xml:space="preserve">
+    <value>Select a gender</value>
+  </data>
+  <data name="EmployeeEditor_DefaultMailBoxTxt" xml:space="preserve">
+    <value>Mail Adress</value>
+  </data>
+  <data name="EmployeeEditor_DefaultNameBoxTxt" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="EmployeeEditor_DefaultPhoneBoxTxt" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="EmployeeEditor_DefaultRemEmpBtnTxt" xml:space="preserve">
+    <value>Remove Employee</value>
+  </data>
+  <data name="EmployeeEditor_DefaultRoleBoxTxt" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="EmployeeEditor_DefaultSurnameBoxTxt" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent00" xml:space="preserve">
+    <value>Is it admin</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent01" xml:space="preserve">
+    <value>Can access to History Page</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent02" xml:space="preserve">
+    <value>Can access to Product Editor</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent03" xml:space="preserve">
+    <value>Can access to Table Editor</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent04" xml:space="preserve">
+    <value>Can access to Employee Editor</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent05" xml:space="preserve">
+    <value>Can it change application settings</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent06" xml:space="preserve">
+    <value>Can it see tickets</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent07" xml:space="preserve">
+    <value>Can it take orders</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent08" xml:space="preserve">
+    <value>Can it cancel orders</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent09" xml:space="preserve">
+    <value>Can it print ticket</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent10" xml:space="preserve">
+    <value>Can it change tables</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent11" xml:space="preserve">
+    <value>Can it do catering</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent12" xml:space="preserve">
+    <value>Can it cancel tickets</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent13" xml:space="preserve">
+    <value>Can it pay the ticket</value>
+  </data>
+  <data name="EmployeeEditor_PermissionContent14" xml:space="preserve">
+    <value>NULL</value>
+  </data>
+  <data name="Entity_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Entity_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Entity_Employee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="Entity_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Entity_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Entity_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Entity_Scence" xml:space="preserve">
+    <value>Scence</value>
+  </data>
+  <data name="Entity_Serving" xml:space="preserve">
+    <value>Serving</value>
+  </data>
+  <data name="Entity_Table" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="Entity_Ticket" xml:space="preserve">
+    <value>Ticket</value>
+  </data>
+  <data name="ERROR_FailToCreateEmpMessage" xml:space="preserve">
+    <value>Failed to create an employee</value>
+  </data>
+  <data name="ERROR_FailToCreateTableMessage" xml:space="preserve">
+    <value>Fail to create a table</value>
+  </data>
+  <data name="ERROR_LoginError1" xml:space="preserve">
+    <value>NULL</value>
+  </data>
+  <data name="ERROR_LoginError2" xml:space="preserve">
+    <value>NULL</value>
+  </data>
+  <data name="EXC_FailToChangeEmp" xml:space="preserve">
+    <value>RubyCafe tried to connect with the database, however it encountered with an exception that is stressed below.</value>
+  </data>
+  <data name="EXC_FailToConnectDatabaseMessage" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="EXC_FailToConnectDatabaseTitle" xml:space="preserve">
+    <value>RubyCafe tried to connect with the database, however it encountered with an exception that is stressed below.</value>
+  </data>
+  <data name="EXC_FailToCreateEmp" xml:space="preserve">
+    <value>An exception occured while creating the employee</value>
+  </data>
+  <data name="EXC_FailToCreateTable" xml:space="preserve">
+    <value>An exception occured while creating the table</value>
+  </data>
+  <data name="EXC_FailToEditTable" xml:space="preserve">
+    <value>Failed to edit active table</value>
+  </data>
+  <data name="LoginPage_LoginBtnText" xml:space="preserve">
+    <value>Login to panel</value>
+  </data>
+  <data name="LoginPage_LoginError1" xml:space="preserve">
+    <value>NULL</value>
+  </data>
+  <data name="LoginPage_LoginError2" xml:space="preserve">
+    <value>NULL</value>
+  </data>
+  <data name="LoginPage_LoginTitle" xml:space="preserve">
+    <value>Login Screen</value>
+  </data>
+  <data name="MainPage_EmptyScenceTxt" xml:space="preserve">
+    <value>No Scences to display</value>
+  </data>
+  <data name="MainPage_ExitMessage" xml:space="preserve">
+    <value>Are you sure to shutdown RubyCafe now?</value>
+  </data>
+  <data name="MainPage_ExitTitle" xml:space="preserve">
+    <value>Shutdown</value>
+  </data>
+  <data name="MainPage_NoScences" xml:space="preserve">
+    <value>Could not find any Scence, please add scences</value>
+  </data>
+  <data name="MainPage_NoTables" xml:space="preserve">
+    <value>Could not find any Table, please add a tables</value>
+  </data>
+  <data name="MainPage_QuickAddTableBtnTxt" xml:space="preserve">
+    <value>Add Table</value>
+  </data>
+  <data name="MainPage_QuickAddTableLabelTxt" xml:space="preserve">
+    <value>There is no tables to display, Please add tables to use Ruby Cafe.</value>
+  </data>
+  <data name="MB_AlreadyExistsMessage" xml:space="preserve">
+    <value>{0} This item already exists in the database</value>
+  </data>
+  <data name="MB_AlreadyExistsTitle" xml:space="preserve">
+    <value>Already exists</value>
+  </data>
+  <data name="MB_EmpNotFoundMessage" xml:space="preserve">
+    <value>Employee was searched in database however there was not stated employee, please be sure that you entered correct</value>
+  </data>
+  <data name="MB_EmpNotFoundTitle" xml:space="preserve">
+    <value>Failed to find employee</value>
+  </data>
+  <data name="MB_FillRequiredAreasMessage" xml:space="preserve">
+    <value>Required areas has found empyt, please be sure that all areas are filled</value>
+  </data>
+  <data name="MB_FillRequiredAreasTitle" xml:space="preserve">
+    <value>Empty Areas</value>
+  </data>
+  <data name="MB_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="MB_NotSavedMessage" xml:space="preserve">
+    <value>{0} is not saved, are you sure to continue</value>
+  </data>
+  <data name="MB_NotSavedTitle" xml:space="preserve">
+    <value>Not Saved</value>
+  </data>
+  <data name="MB_NumberedRequiredAreaMessage" xml:space="preserve">
+    <value>Characterical value/values found in a numeric area</value>
+  </data>
+  <data name="MB_NumberedRequiredAreaTitle" xml:space="preserve">
+    <value>Cast Error</value>
+  </data>
+  <data name="MB_OKAY" xml:space="preserve">
+    <value>Okay</value>
+  </data>
+  <data name="MB_RoleNotFoundMessage" xml:space="preserve">
+    <value>Role not found in the list</value>
+  </data>
+  <data name="MB_RoleNotFoundTitle" xml:space="preserve">
+    <value>Role is not found</value>
+  </data>
+  <data name="MB_RoleNotSelectedMessage" xml:space="preserve">
+    <value>Role is not Selected</value>
+  </data>
+  <data name="MB_RoleNotSelectedTitle" xml:space="preserve">
+    <value>Role not selected!</value>
+  </data>
+  <data name="MB_SureToDeleteMessage" xml:space="preserve">
+    <value>Are you sure to delete this item? {0}</value>
+  </data>
+  <data name="MB_SureToDeleteTitle" xml:space="preserve">
+    <value>Deleting Item</value>
+  </data>
+  <data name="MB_YES" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Navigator_EmployeeEDesc" xml:space="preserve">
+    <value>Available employee number: {0}</value>
+  </data>
+  <data name="Navigator_EmployeeETitle" xml:space="preserve">
+    <value>Employee Editor</value>
+  </data>
+  <data name="Navigator_HistoryMDesc" xml:space="preserve">
+    <value>Last seen</value>
+  </data>
+  <data name="Navigator_HistoryMTitle" xml:space="preserve">
+    <value>History Editor</value>
+  </data>
+  <data name="Navigator_ProductEDesc" xml:space="preserve">
+    <value>Total products {0}</value>
+  </data>
+  <data name="Navigator_ProductETitle" xml:space="preserve">
+    <value>Product Editor</value>
+  </data>
+  <data name="Navigator_TableEDesc" xml:space="preserve">
+    <value>Available tables: {0}</value>
+  </data>
+  <data name="Navigator_TableETitle" xml:space="preserve">
+    <value>Table Ediitor</value>
+  </data>
+  <data name="NOTIF_AccessedToScreen" xml:space="preserve">
+    <value>The page has been accessed</value>
+  </data>
+  <data name="NOTIF_ClosedApp" xml:space="preserve">
+    <value>RubyCafe has been closed in this machine; {0}</value>
+  </data>
+  <data name="NOTIF_OpenedApp" xml:space="preserve">
+    <value>Ruby Cafe has been started to running in this machine; {0}</value>
+  </data>
+  <data name="PROCESS_CategoryCreated" xml:space="preserve">
+    <value>{0} named caregory has been created</value>
+  </data>
+  <data name="PROCESS_DBConnection" xml:space="preserve">
+    <value>Database has connected successfully!</value>
+  </data>
+  <data name="PROCESS_EmpChanged" xml:space="preserve">
+    <value>{0} named employee has been changed to {1}</value>
+  </data>
+  <data name="PROCESS_EmpCreated" xml:space="preserve">
+    <value>{0} named employee has been created</value>
+  </data>
+  <data name="PROCESS_EmpDeleted" xml:space="preserve">
+    <value>{0} named employee has been deleted</value>
+  </data>
+  <data name="PROCESS_ProductCategorySetted" xml:space="preserve">
+    <value>{0} named product has been setted on {1}</value>
+  </data>
+  <data name="PROCESS_ProductCreated" xml:space="preserve">
+    <value>{0} named product has been created</value>
+  </data>
+  <data name="PROCESS_ProductDeleted" xml:space="preserve">
+    <value>{0} named product has beem deleted</value>
+  </data>
+  <data name="PROCESS_RoleCreated" xml:space="preserve">
+    <value>{0} named role has been created</value>
+  </data>
+  <data name="PROCESS_RoleDeleted" xml:space="preserve">
+    <value>{0} named role has been deleted</value>
+  </data>
+  <data name="PROCESS_ScenceCreated" xml:space="preserve">
+    <value>{0} named scence has been created</value>
+  </data>
+  <data name="PROCESS_ScenceDeleted" xml:space="preserve">
+    <value>{0} named scence has been deleted</value>
+  </data>
+  <data name="PROCESS_TableChanged" xml:space="preserve">
+    <value>{0} has been changed to {1}</value>
+  </data>
+  <data name="PROCESS_TableCreated" xml:space="preserve">
+    <value>{0} named table has been created in {1}</value>
+  </data>
+  <data name="PROCESS_TableDeleted" xml:space="preserve">
+    <value>{0} named table has been deleted</value>
+  </data>
+  <data name="ProductEditor_DefaultBarcodeTxt" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="ProductEditor_DefaultCategoryNameTxt" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ProductEditor_DefaultPriceTxt" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ProductEditor_DefaultProductNameTxt" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProductEditor_DefaultQuantityTxt" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="ProductEditor_DefaultRemBtnTxt" xml:space="preserve">
+    <value>Remove Product</value>
+  </data>
+  <data name="ProductEditor_DefaultSaveBtnTxt" xml:space="preserve">
+    <value>Save Product</value>
+  </data>
+  <data name="ProductEditor_DefaultServingTxt" xml:space="preserve">
+    <value>Serving</value>
+  </data>
+  <data name="ProductEditor_DefaultTaxTxt" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="TableEditor_DefaultAddScenceBtnTxt" xml:space="preserve">
+    <value>Add Scence</value>
+  </data>
+  <data name="TableEditor_DefaultAdvancedColorsTxt" xml:space="preserve">
+    <value>Advanced Colors</value>
+  </data>
+  <data name="TableEditor_DefaultCreateTableBtnTxt" xml:space="preserve">
+    <value>Create Table</value>
+  </data>
+  <data name="TableEditor_DefaultEditTableBtnTxt" xml:space="preserve">
+    <value>Edit Table</value>
+  </data>
+  <data name="TableEditor_DefaultEnabledCheckTxt" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="TableEditor_DefaultLockCheckTxt" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="TableEditor_DefaultRemoveScenceBtnTxt" xml:space="preserve">
+    <value>Remove Scence</value>
+  </data>
+  <data name="TableEditor_DefaultRemoveTableBtnTxt" xml:space="preserve">
+    <value>Remove Table</value>
+  </data>
+  <data name="TableEditor_DefaultReservableCheckTxt" xml:space="preserve">
+    <value>Reservable</value>
+  </data>
+  <data name="TableEditor_DefaultScenceAdderTxt" xml:space="preserve">
+    <value>Add Scence</value>
+  </data>
+  <data name="TableEditor_DefaultStandardColorsTxt" xml:space="preserve">
+    <value>Standart Colors</value>
+  </data>
+  <data name="TableEditor_DefaultTableColorTxt" xml:space="preserve">
+    <value>Table Color</value>
+  </data>
+  <data name="TableEditor_DefaultTableMaxChairTxt" xml:space="preserve">
+    <value>Max Chair</value>
+  </data>
+  <data name="TableEditor_DefaultTableNameTxt" xml:space="preserve">
+    <value>Table Name</value>
+  </data>
+  <data name="TableEditor_DefaultTableScenceTxt" xml:space="preserve">
+    <value>Table Scence</value>
+  </data>
+  <data name="TableEditor_DefaultTableTypeTxt" xml:space="preserve">
+    <value>Table Type</value>
+  </data>
+  <data name="TableEditor_EmptyScenceText" xml:space="preserve">
+    <value>Empty Scence</value>
+  </data>
+  <data name="WARN_AddScenceNotif" xml:space="preserve">
+    <value>No scence has found to display, please add scences from admin panel</value>
+  </data>
+  <data name="WARN_AddTableNotif" xml:space="preserve">
+    <value>No table has found to display, please add tables from admin panel</value>
+  </data>
+  <data name="EmployeeEditor_DefaultAddRoleBtnTxt" xml:space="preserve">
+    <value>Add Role</value>
+  </data>
+  <data name="EmployeeEditor_DefaultRemoveRoleBtnTxt" xml:space="preserve">
+    <value>Remove Role</value>
+  </data>
+  <data name="MB_SureToDeleteSubitemsMessage" xml:space="preserve">
+    <value>It will delete all subitems under this item</value>
+  </data>
+  <data name="MB_SureToEditMessage" xml:space="preserve">
+    <value>Are you sure to edit this item? {0}</value>
+  </data>
+  <data name="MB_SureToEditTitle" xml:space="preserve">
+    <value>Editting Item</value>
+  </data>
+  <data name="MB_ItemIsNotSelectedMessage" xml:space="preserve">
+    <value>You should choose an item to keep going on the process..</value>
+  </data>
+  <data name="MB_ItemIsNotSelectedTitle" xml:space="preserve">
+    <value>Item is not selected</value>
+  </data>
+  <data name="MB_LockedTableMessage" xml:space="preserve">
+    <value>This table setted as locked, please contract with your employer to open this table if it needs</value>
+  </data>
+  <data name="MB_LockedTableTitle" xml:space="preserve">
+    <value>Locked Table</value>
+  </data>
+  <data name="MB_NoServingMessage" xml:space="preserve">
+    <value>Looks like there are not any serving in this product. Please add servings to this product to continue.</value>
+  </data>
+  <data name="MB_NoServingTitle" xml:space="preserve">
+    <value>No Serving</value>
+  </data>
+  <data name="TicketPage_DefaultCashBtnTxt" xml:space="preserve">
+    <value>Pay as Cash</value>
+  </data>
+  <data name="TicketPage_DefaultChangeTableBtnTxt" xml:space="preserve">
+    <value>Change Table</value>
+  </data>
+  <data name="TicketPage_DefaultCloseTableBtnTxt" xml:space="preserve">
+    <value>Close Table</value>
+  </data>
+  <data name="TicketPage_DefaultCreditBtnTxt" xml:space="preserve">
+    <value>Pay as Credit Card</value>
+  </data>
+  <data name="TicketPage_DefaultMenuListTxt" xml:space="preserve">
+    <value>Menu List</value>
+  </data>
+  <data name="TicketPage_DefaultMultiplierBoxTxt" xml:space="preserve">
+    <value>Multiplier</value>
+  </data>
+  <data name="TicketPage_DefaultPriceBoxTxt" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="TicketPage_DefaultPrintTicketTxt" xml:space="preserve">
+    <value>Print Recipt</value>
+  </data>
+  <data name="TicketPage_DefaultServingBoxTxt" xml:space="preserve">
+    <value>Serving</value>
+  </data>
+  <data name="TicketPage_DefaultTableNameTxt" xml:space="preserve">
+    <value>Table: {0}</value>
+  </data>
+  <data name="TicketPage_DefaultTotalPriceTxt" xml:space="preserve">
+    <value>Total Price</value>
+  </data>
+  <data name="TicketPage_DefaultTurnBackBtnTxt" xml:space="preserve">
+    <value>Turn Main Menu</value>
+  </data>
+  <data name="NOTIF_AcessedToTable" xml:space="preserve">
+    <value>Has been accessed to {0} named table</value>
+  </data>
+  <data name="TicketPage_AddedItemToAccount" xml:space="preserve">
+    <value>{0} {1} has added to {2}</value>
+  </data>
+  <data name="TicketPage_RemovedItemFromAccount" xml:space="preserve">
+    <value>{0} has removed from {1}</value>
+  </data>
+  <data name="MB_NoPermissionToProcessMessage" xml:space="preserve">
+    <value>You don't have enough permission to do this</value>
+  </data>
+  <data name="MB_NoPermissionToProcessTitle" xml:space="preserve">
+    <value>Permission Error</value>
+  </data>
+  <data name="NOTIF_TableChanged" xml:space="preserve">
+    <value>{0} named table changed to {1}</value>
+  </data>
+  <data name="PROCESS_TicketCreated" xml:space="preserve">
+    <value>Ticket created in {0}</value>
+  </data>
+  <data name="WARN_TableCanceled" xml:space="preserve">
+    <value>{0} named table canceled</value>
+  </data>
+  <data name="HistoryManager_ActiveTables" xml:space="preserve">
+    <value>Active Tables</value>
+  </data>
+  <data name="HistoryManager_TotalSalesDefaultText" xml:space="preserve">
+    <value>Total Sales</value>
+  </data>
+  <data name="HistoryManager_TotalSoldProducts" xml:space="preserve">
+    <value>Total Sold Products</value>
+  </data>
+  <data name="HistoryManager_DefaultSelectEmployeeTxt" xml:space="preserve">
+    <value>Select an employee</value>
+  </data>
+  <data name="HistoryManager_DefaultSelectProductTxt" xml:space="preserve">
+    <value>Select a product</value>
+  </data>
+  <data name="HistoryManager_DefaultSelectTableTxt" xml:space="preserve">
+    <value>Select a table</value>
+  </data>
+  <data name="HistoryManager_CriteriaCleanerBtnTxt" xml:space="preserve">
+    <value>Clear Criteria</value>
+  </data>
+  <data name="LoginPage_LoginTextBoxTxt" xml:space="preserve">
+    <value>Enter PIN Code</value>
+  </data>
+  <data name="SettingsPage_DefaultAdissionPageTxt" xml:space="preserve">
+    <value>Adission Page</value>
+  </data>
+  <data name="SettingsPage_DefaultCheckConnectionBtnTxt" xml:space="preserve">
+    <value>Check Connection</value>
+  </data>
+  <data name="SettingsPage_DefaultConnectionStringTxt" xml:space="preserve">
+    <value>Connection string = {0}</value>
+  </data>
+  <data name="SettingsPage_DefaultDatabaseNameTxt" xml:space="preserve">
+    <value>Database Name</value>
+  </data>
+  <data name="SettingsPage_DefaultDatabaseSettingsTxt" xml:space="preserve">
+    <value>Database Settings</value>
+  </data>
+  <data name="SettingsPage_DefaultDatabaseTypeTxt" xml:space="preserve">
+    <value>Database Type</value>
+  </data>
+  <data name="SettingsPage_DefaultGeneralSettingsTxt" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="SettingsPage_DefaultHeightTxt" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="SettingsPage_DefaultLanguagrTxt" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsPage_DefaultMachineNameTxt" xml:space="preserve">
+    <value>Machine Name</value>
+  </data>
+  <data name="SettingsPage_DefaultOrganizationNameTxt" xml:space="preserve">
+    <value>Organization Name</value>
+  </data>
+  <data name="SettingsPage_DefaultOrganizationSettingsTxt" xml:space="preserve">
+    <value>Organization Settings</value>
+  </data>
+  <data name="SettingsPage_DefaultOrganizationTypeTxt" xml:space="preserve">
+    <value>Organization Type</value>
+  </data>
+  <data name="SettingsPage_DefaultPasswordTxt" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SettingsPage_DefaultServerNameTxt" xml:space="preserve">
+    <value>Server Name</value>
+  </data>
+  <data name="SettingsPage_DefaultStartWithMachineTxt" xml:space="preserve">
+    <value>Start application with machine</value>
+  </data>
+  <data name="SettingsPage_DefaultUserNameTxt" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="SettingsPage_DefaultWidthTxt" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SettingsPage_ImportAdissionBtnTxt" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="SettingsPage_PrintSampleBtnTxt" xml:space="preserve">
+    <value>Print Sample</value>
+  </data>
+  <data name="MB_RestartNeededMessage" xml:space="preserve">
+    <value>You may need restart application for apply settings.</value>
+  </data>
+  <data name="MB_RestartNeededTitle" xml:space="preserve">
+    <value>Need Restart</value>
+  </data>
+  <data name="Navigator_SettingsPTitle" xml:space="preserve">
+    <value>Setttings Page</value>
+  </data>
+  <data name="MB_ErrorAdissionMessage" xml:space="preserve">
+    <value>There is an error in adission page, please review your adission code.</value>
+  </data>
+  <data name="MB_ErrorAdissionTitle" xml:space="preserve">
+    <value>Adission Error</value>
+  </data>
+  <data name="MB_FailedConnection" xml:space="preserve">
+    <value>Failed to connect database</value>
+  </data>
+  <data name="MB_SuccessfullConnection" xml:space="preserve">
+    <value>Database successfully connected</value>
+  </data>
+  <data name="SetupScreen_Purpose" xml:space="preserve">
+    <value>Our purpose is help your organization to grow up</value>
+  </data>
+  <data name="SetupScreen_Redirecting" xml:space="preserve">
+    <value>We are redirecting you to setup pages.</value>
+  </data>
+  <data name="SetupScreen_SettingSettigsMessage" xml:space="preserve">
+    <value>We are setting some settings please wait for few minutes</value>
+  </data>
+  <data name="SetupScreen_WelcomeText" xml:space="preserve">
+    <value>Welcome to RubySoft</value>
+  </data>
+  <data name="SetupScreen_CompletedMessage" xml:space="preserve">
+    <value>Okay we got your settings</value>
+  </data>
+  <data name="SetupScreen_EnjoyService" xml:space="preserve">
+    <value>It looks everything is okay :)
+Enjoy our service!</value>
+  </data>
+  <data name="SetupScreen_SaveSettings" xml:space="preserve">
+    <value>Now let RubySoft to save 
+these settings...</value>
+  </data>
+  <data name="SetupScreen_DatabaseSettingsTitle" xml:space="preserve">
+    <value>Database Settings</value>
+  </data>
+  <data name="SetupScreen_FirstEmployeesTitle" xml:space="preserve">
+    <value>First Employees</value>
+  </data>
+  <data name="SetupScreen_GeneralSettingsTitle" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="SettingsPage_DefaultShowBtnOptionTxt" xml:space="preserve">
+    <value>Show close button in the main page</value>
+  </data>
+  <data name="SetupPage_DefaultNextBtnTxt" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="EmployeeEditor_DefaultRoleNameTxt" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="MB_RoleHasEmployeesMessage" xml:space="preserve">
+    <value>Role is not deleted because there are employees which contains this role</value>
+  </data>
+  <data name="MB_RoleHasEmployeesTitle" xml:space="preserve">
+    <value>Failed to remove role</value>
+  </data>
+</root>
