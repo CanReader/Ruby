@@ -12,7 +12,8 @@
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineTextBox.xaml"/>
-                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineButton.xaml"/>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineButton.xaml" x:Name="OButton"/>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/NextButton.xaml"/>
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Grid.Resources>
@@ -39,7 +40,7 @@
                 <TextBox x:Name="EmpSurnameBox" Text="Employee Surname" Margin="0,0,60,0"/>
                 <DatePicker x:Name="StartDateBox" Margin="0,30,19,0" FontSize="19" Foreground="SlateGray"/>
                 <TextBox x:Name="EmpPhoneBox" Text="Employee Phone" Margin="0,33,60,0" MaxLength="11"/>
-                <Button x:Name="AddEmpBtn" Content="Add Employee" Margin="40,40,40,0" Click="AddEmployee"/>
+                <Button  x:Name="AddEmpBtn" Content="Add Employee" Margin="40,40,40,0" Click="AddEmployee"/>
                 <Button x:Name="RemEmpBtn" Content="Remove Employee" Margin="40,20,40,0" Click="RemoveEmployee"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2" Margin="0,40,0,0">
                 <Button x:Name="AddRoleBtn" Content="Add Role" VerticalAlignment="Top" Click="AddRole"/>
@@ -59,20 +60,7 @@
                 </ListBox>
             </Grid>
         </Grid>
-        <Button x:Name="NextBtn" Content="Next ->" Click="NextPage">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="#6D3CD0"/>
-                    <Setter Property="BorderBrush" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="VerticalAlignment" Value="Bottom"/>
-                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                    <Setter Property="Padding" Value="12,8,12,8"/>
-                    <Setter Property="Margin" Value="20"/>
-                    <Setter Property="FontSize" Value="20"/>
-                    <Setter Property="FontWeight" Value="SemiBold"/>
-                </Style>
-            </Button.Style>
+        <Button x:Name="NextBtn" Content="Next Page" Click="NextPage">
         </Button>
     </Grid>
 </Page>

@@ -109,73 +109,73 @@ namespace Ruby.Setup.Views
 
         private void TypeChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DBTypeBox.SelectedIndex == -1 || DBTypeBox.SelectedIndex == 0)
+            switch (DBTypeBox.SelectedIndex)
             {
-                ServerNameBox.IsReadOnly = true;
-                DatabaseNameBox.IsReadOnly = true;
-                UserNameBox.IsReadOnly = true;
-                PasswordBox.IsReadOnly = true;
+                case -1: case 0:
+                    ServerNameBox.IsReadOnly = true;
+                    DatabaseNameBox.IsReadOnly = true;
+                    UserNameBox.IsReadOnly = true;
+                    PasswordBox.IsReadOnly = true;
 
-                DefServerNameTxt.Visibility = Visibility.Visible;
-                DatabaseNameBox.Visibility = Visibility.Visible;
-                DefUserNameTxt.Visibility = Visibility.Visible;
-                DefPasswordTxt.Visibility = Visibility.Visible;
+                    DefServerNameTxt.Visibility = Visibility.Visible;
+                    DatabaseNameBox.Visibility = Visibility.Visible;
+                    DefUserNameTxt.Visibility = Visibility.Visible;
+                    DefPasswordTxt.Visibility = Visibility.Visible;
 
-                ServerNameBox.Visibility = Visibility.Visible;
-                DatabaseNameBox.Visibility = Visibility.Visible;
-                UserNameBox.Visibility = Visibility.Visible;
-                PasswordBox.Visibility = Visibility.Visible;
-                ConnectionStringTxt.Visibility = Visibility.Visible;
+                    ServerNameBox.Visibility = Visibility.Visible;
+                    DatabaseNameBox.Visibility = Visibility.Visible;
+                    UserNameBox.Visibility = Visibility.Visible;
+                    PasswordBox.Visibility = Visibility.Visible;
+                    ConnectionStringTxt.Visibility = Visibility.Visible;
 
-                ServerNameBox.Text = "";
-                DatabaseNameBox.Text = "";
-                UserNameBox.Text = "";
-                PasswordBox.Text = "";
+                    ServerNameBox.Text = "";
+                    DatabaseNameBox.Text = "";
+                    UserNameBox.Text = "";
+                    PasswordBox.Text = "";
 
-                ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, "");
-            }
-            else if(DBTypeBox.SelectedIndex == 3)
-            {
-                DefServerNameTxt.Visibility = Visibility.Hidden;
-                DefDatabaseNameTxt.Visibility = Visibility.Hidden;
-                DefUserNameTxt.Visibility = Visibility.Hidden;
-                DefPasswordTxt.Visibility = Visibility.Hidden;
+                    ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, "");
+                    break;
+                case 3:
+                    DefServerNameTxt.Visibility = Visibility.Hidden;
+                    DefDatabaseNameTxt.Visibility = Visibility.Hidden;
+                    DefUserNameTxt.Visibility = Visibility.Hidden;
+                    DefPasswordTxt.Visibility = Visibility.Hidden;
 
-                ServerNameBox.Visibility = Visibility.Hidden;
-                DatabaseNameBox.Visibility = Visibility.Hidden;
-                UserNameBox.Visibility = Visibility.Hidden;
-                PasswordBox.Visibility = Visibility.Hidden;
-                ConnectionStringTxt.Visibility = Visibility.Hidden;
+                    ServerNameBox.Visibility = Visibility.Hidden;
+                    DatabaseNameBox.Visibility = Visibility.Hidden;
+                    UserNameBox.Visibility = Visibility.Hidden;
+                    PasswordBox.Visibility = Visibility.Hidden;
+                    ConnectionStringTxt.Visibility = Visibility.Hidden;
 
-                ServerNameBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/RubySoft/RubyCafe";
-                UserNameBox.Text = "3";
+                    ServerNameBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/RubySoft/RubyCafe";
+                    UserNameBox.Text = "3";
 
-                ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, ConnectionString);
-            }
-            else
-            {
-                ServerNameBox.IsReadOnly = false;
-                DatabaseNameBox.IsReadOnly = false;
-                UserNameBox.IsReadOnly = false;
-                PasswordBox.IsReadOnly = false;
+                    ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, ConnectionString); 
+                    break;
+                default:
+                    ServerNameBox.IsReadOnly = false;
+                    DatabaseNameBox.IsReadOnly = false;
+                    UserNameBox.IsReadOnly = false;
+                    PasswordBox.IsReadOnly = false;
 
-                DefServerNameTxt.Visibility = Visibility.Visible;
-                DefDatabaseNameTxt.Visibility = Visibility.Visible;
-                DefUserNameTxt.Visibility = Visibility.Visible;
-                DefPasswordTxt.Visibility = Visibility.Visible;
+                    DefServerNameTxt.Visibility = Visibility.Visible;
+                    DefDatabaseNameTxt.Visibility = Visibility.Visible;
+                    DefUserNameTxt.Visibility = Visibility.Visible;
+                    DefPasswordTxt.Visibility = Visibility.Visible;
 
-                ServerNameBox.Visibility = Visibility.Visible;
-                DatabaseNameBox.Visibility = Visibility.Visible;
-                UserNameBox.Visibility = Visibility.Visible;
-                PasswordBox.Visibility = Visibility.Visible;
-                ConnectionStringTxt.Visibility = Visibility.Visible;
+                    ServerNameBox.Visibility = Visibility.Visible;
+                    DatabaseNameBox.Visibility = Visibility.Visible;
+                    UserNameBox.Visibility = Visibility.Visible;
+                    PasswordBox.Visibility = Visibility.Visible;
+                    ConnectionStringTxt.Visibility = Visibility.Visible;
 
-                ServerNameBox.Text = "";
-                DatabaseNameBox.Text = "";
-                UserNameBox.Text = "";
-                PasswordBox.Text = "";
+                    ServerNameBox.Text = "";
+                    DatabaseNameBox.Text = "";
+                    UserNameBox.Text = "";
+                    PasswordBox.Text = "";
 
-                ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, "");
+                    ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, "");
+                    break;
             }
         }
     }

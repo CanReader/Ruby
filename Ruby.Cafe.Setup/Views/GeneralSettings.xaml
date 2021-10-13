@@ -13,6 +13,7 @@
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineTextBox.xaml"/>
                     <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineComboBox.xaml"/>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/NextButton.xaml"/>
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Grid.Resources>
@@ -34,11 +35,11 @@
                 <CheckBox x:Name="Option2Box" Content="Show close button in the main page" Margin="0,20,0,0" FontSize="20" Foreground="SlateGray"/>
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBlock x:Name="DefWidthTxt" VerticalAlignment="Center" FontSize="22" Text="Width: " Margin="0,0,20,0" Foreground="SlateGray"/>
-                    <TextBox x:Name="WidthBox" Text=""  Width="150" MaxLength="4" VerticalAlignment="Center"/>
+                    <TextBox x:Name="WidthBox" Text="" Margin="5,0,0,0" Width="150" MaxLength="4" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBlock x:Name="DefHeightTxt" VerticalAlignment="Center" FontSize="22" Text="Height: " Margin="0,0,20,0" Foreground="SlateGray"/>
-                    <TextBox x:Name="HeightBox" MaxLength="4" Width="150"/>
+                    <TextBox x:Name="HeightBox" Text="" Width="150" MaxLength="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1">
@@ -46,11 +47,11 @@
                     <TextBlock x:Name="DefOrgNameTxt" VerticalAlignment="Center" FontSize="22" Text="Organization Name: " Margin="0,0,20,0" Foreground="SlateGray"/>
                     <TextBox x:Name="OrgNameBox" Width="170"/>
                 </StackPanel>
-                <ComboBox Style="{x:Null}" x:Name="OrgTypeBox" Text="Organization Type" Margin="0,20,0,0" IsEditable="True" Width="200" FontSize="19">
+                <ComboBox Style="{x:Null}" x:Name="OrgTypeBox" Text="Organization Type" Margin="0,20,0,0" IsEditable="True" Width="200" FontSize="19" Foreground="DimGray" HorizontalContentAlignment="Center">
                     <ComboBoxItem>Cafe</ComboBoxItem>
                     <ComboBoxItem>Restaurant</ComboBoxItem>
                 </ComboBox>
-                <ComboBox Style="{x:Null}" IsEditable="True" x:Name="LanguageBox" Text="Language" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,20,0,0" Width="200" FontSize="19">
+                <ComboBox Style="{x:Null}" IsEditable="True" x:Name="LanguageBox" Text="Language" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,20,0,0" Width="200" FontSize="19" Foreground="DimGray">
                     <ComboBoxItem>English</ComboBoxItem>
                     <ComboBoxItem>Türkçe</ComboBoxItem>
                     <ComboBoxItem>Français</ComboBoxItem>
@@ -58,20 +59,8 @@
                 </ComboBox>
             </StackPanel>
         </Grid>
-        <Button x:Name="NextBtn" Content="Next ->" Click="NextPage">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="#6D3CD0"/>
-                    <Setter Property="BorderBrush" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="VerticalAlignment" Value="Bottom"/>
-                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                    <Setter Property="Padding" Value="12,8,12,8"/>
-                    <Setter Property="Margin" Value="20"/>
-                    <Setter Property="FontSize" Value="20"/>
-                    <Setter Property="FontWeight" Value="SemiBold"/>
-                </Style>
-            </Button.Style>
+        <Button x:Name="NextBtn" Content="Next Page" Click="NextPage">
+
         </Button>
     </Grid>
 </Page>

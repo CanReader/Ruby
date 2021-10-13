@@ -643,7 +643,7 @@
     <value>Check Connection</value>
   </data>
   <data name="SettingsPage_DefaultConnectionStringTxt" xml:space="preserve">
-    <value>Connection string = {0}</value>
+    <value>Connection string -&gt; {0}</value>
   </data>
   <data name="SettingsPage_DefaultDatabaseNameTxt" xml:space="preserve">
     <value>Database Name</value>

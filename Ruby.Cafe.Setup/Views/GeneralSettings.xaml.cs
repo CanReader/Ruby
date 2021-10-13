@@ -64,7 +64,6 @@ namespace Ruby.Setup.Views
             DefWidthTxt.Text = Ruby.Resources.Localization.SettingsPage_DefaultWidthTxt;
             DefHeightTxt.Text = Ruby.Resources.Localization.SettingsPage_DefaultHeightTxt;
             DefOrgNameTxt.Text = Ruby.Resources.Localization.SettingsPage_DefaultOrganizationNameTxt;
-            DefOrgNameTxt.Text = Ruby.Resources.Localization.SettingsPage_DefaultOrganizationTypeTxt;
             LanguageBox.Text = Ruby.Resources.Localization.SettingsPage_DefaultLanguagrTxt;
 
             NextBtn.Content = Ruby.Resources.Localization.SetupPage_DefaultNextBtnTxt;

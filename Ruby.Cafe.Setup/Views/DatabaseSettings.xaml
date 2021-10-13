@@ -13,6 +13,7 @@
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="/Ruby.Setup;component/Styles/OutlineTextBox.xaml"/>
+                    <ResourceDictionary Source="/Ruby.Setup;component/Styles/NextButton.xaml"/>
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Grid.Resources>
@@ -47,21 +48,8 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <TextBlock x:Name="ConnectionStringTxt" Text="Connection String = {0}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontSize="18" Margin="30,0,300,30" TextWrapping="Wrap"/>
-        <Button x:Name="NextBtn" Content="Next ->" Click="NextPage">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="#6D3CD0"/>
-                    <Setter Property="BorderBrush" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="VerticalAlignment" Value="Bottom"/>
-                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                    <Setter Property="Padding" Value="12,8,12,8"/>
-                    <Setter Property="Margin" Value="20"/>
-                    <Setter Property="FontSize" Value="20"/>
-                    <Setter Property="FontWeight" Value="SemiBold"/>
-                </Style>
-            </Button.Style>
+        <TextBlock x:Name="ConnectionStringTxt" Text="Connection String -> {0}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontSize="18" Margin="30,0,300,30" TextWrapping="Wrap"/>
+        <Button x:Name="NextBtn" Content="Next Page" Click="NextPage">
         </Button>
     </Grid>
 </Page>
