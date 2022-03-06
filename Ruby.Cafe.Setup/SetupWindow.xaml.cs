@@ -62,15 +62,15 @@ namespace Ruby.Setup
             Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InstalledUICulture;
         }
 
-        public void FadeIn()
+        public void FadeIn(int Second)
         {
-            this.Dispatcher.Invoke(() => WelcomeText.BeginAnimation(OpacityProperty, new DoubleAnimation(1, 0, TimeSpan.FromSeconds(3))));
+            this.Dispatcher.Invoke(() => WelcomeText.BeginAnimation(OpacityProperty, new DoubleAnimation(1, 0, TimeSpan.FromSeconds(Second))));
             this.Dispatcher.Invoke(() => WelcomeText.Opacity = 0);
         }
 
-        public void FadeOut()
+        public void FadeOut(int Second)
         {
-            this.Dispatcher.Invoke(() => WelcomeText.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(3))));
+            this.Dispatcher.Invoke(() => WelcomeText.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(Second))));
             this.Dispatcher.Invoke(() => WelcomeText.Opacity = 1);
         }
 
@@ -137,6 +137,7 @@ namespace Ruby.Setup
 
         private void WelcomeText_Loaded(object sender, RoutedEventArgs e)
         {
+
             #region Initialize pages
             generals = new GeneralSettings(this);
             databases = new DatabaseSettings(this);
@@ -151,36 +152,36 @@ namespace Ruby.Setup
                 Task t1 = new Task(() =>
                      {
                          this.Dispatcher.Invoke(() => WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_WelcomeText);
-                         FadeOut();
-                         Thread.Sleep(7000);
-                         FadeIn();
-                         Thread.Sleep(6000);
+                         FadeOut(2);
+                         Thread.Sleep(4000);
+                         FadeIn(2);
+                         Thread.Sleep(3000);
                      });
 
                      Task t2 = new Task(() =>
                      {
                          this.Dispatcher.Invoke(() => WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_Purpose);
-                         FadeOut();
-                         Thread.Sleep(6000);
-                         FadeIn();
+                         FadeOut(2);
                          Thread.Sleep(4000);
+                         FadeIn(2);
+                         Thread.Sleep(3000);
                      });
 
                      Task t3 = new Task(() =>
                      {
                          this.Dispatcher.Invoke(() => WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_SettingSettigsMessage);
-                         FadeOut();
+                         FadeOut(2);
                          Thread.Sleep(10000);
-                         FadeIn();
+                         FadeIn(2);
                          Thread.Sleep(4000);
                      });
 
                      Task t4 = new Task(() =>
                 {
                     this.Dispatcher.Invoke(() => WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_Redirecting);
-                    FadeOut();
+                    FadeOut(2);
                     Thread.Sleep(7000);
-                    FadeIn();
+                    FadeIn(2);
                     Thread.Sleep(6000);
                     this.Dispatcher.Invoke(() => this.Content = generals);
                      });

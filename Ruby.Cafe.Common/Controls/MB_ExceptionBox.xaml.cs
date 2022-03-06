@@ -76,6 +76,9 @@ namespace Ruby.Cafe.Common.Controls
         {
             string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +"/RubySoft/RubyCafe/" + GenerateLogFileName(DateTime.Now) + ".txt";
 
+            if (!System.IO.File.Exists(FolderPath))
+                System.IO.File.Create(FolderPath);
+
             List<string> FileStrings = new List<string>();
 
             var stream = new System.IO.FileStream(FolderPath, System.IO.FileMode.OpenOrCreate);

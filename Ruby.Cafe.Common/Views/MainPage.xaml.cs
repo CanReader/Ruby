@@ -406,6 +406,8 @@ namespace Ruby.Cafe.Common.Screens
     {
         public int Compare(int[] x, int[] y)
         {
+            List<int> lst = new List<int>();
+
             if (Math.Abs(x[0] - x[1]) < Math.Abs(y[0] - y[1]))
                 return 1;
             else

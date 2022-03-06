@@ -35,7 +35,7 @@ namespace Ruby.Cafe.Common.Screens
         public AdminScreen(Database.IDatabase database, History HistoryInstance)
         {
             InitializeComponent();
-
+            
             this.db = database;
 
             this.HistoryManager = HistoryInstance;

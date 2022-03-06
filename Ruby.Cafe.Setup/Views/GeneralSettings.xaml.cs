@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Ruby.Setup.Views
 {
@@ -17,7 +18,8 @@ namespace Ruby.Setup.Views
             this.MainWindow = MainWindow;
 
             this.Loaded += (ssender, ee) =>
-            ClearUI();
+                ClearUI();
+
             LanguageBox.SelectionChanged += (ssender, ee) =>
             {
                 if (LanguageBox.SelectedItem == null || LanguageBox.SelectedIndex == -1)

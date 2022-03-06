@@ -28,18 +28,18 @@ namespace Ruby.Setup.Views
                     {
                         System.Threading.Thread.Sleep(1000);
                         MainWindow.Dispatcher.Invoke(() => MainWindow.WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_CompletedMessage);
-                        MainWindow.FadeOut();
+                        MainWindow.FadeOut(2);
                         System.Threading.Thread.Sleep(7000);
-                        MainWindow.FadeIn();
+                        MainWindow.FadeIn(2);
                         System.Threading.Thread.Sleep(6000);
                     });
 
                     Task t2 = new Task(() =>
                     {
                         MainWindow.Dispatcher.Invoke(() => MainWindow.WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_SettingSettigsMessage);
-                        MainWindow.FadeOut();
+                        MainWindow.FadeOut(2);
                         System.Threading.Thread.Sleep(7000);
-                        MainWindow.FadeIn();
+                        MainWindow.FadeIn(2);
                         System.Threading.Thread.Sleep(6000);
                         MainWindow.Roles = Roles;
                         MainWindow.Employees = Employees;
@@ -53,7 +53,7 @@ namespace Ruby.Setup.Views
                         if (!stop)
                         {
                             MainWindow.Dispatcher.Invoke(() => MainWindow.WelcomeText.Text = Ruby.Resources.Localization.SetupScreen_EnjoyService);
-                            MainWindow.FadeOut();
+                            MainWindow.FadeOut(2);
                             System.Threading.Thread.Sleep(8000);
                         }
                     });
