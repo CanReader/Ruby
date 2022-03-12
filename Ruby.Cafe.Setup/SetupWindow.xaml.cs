@@ -58,8 +58,14 @@ namespace Ruby.Setup
         {
             InitializeComponent();
 
+#if DEBUG
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+#else
+
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InstalledUICulture;
             Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InstalledUICulture;
+#endif       
         }
 
         public void FadeIn(int Second)
@@ -138,11 +144,11 @@ namespace Ruby.Setup
         private void WelcomeText_Loaded(object sender, RoutedEventArgs e)
         {
 
-            #region Initialize pages
+#region Initialize pages
             generals = new GeneralSettings(this);
             databases = new DatabaseSettings(this);
             firsts = new FirstEmployees(this);
-            #endregion
+#endregion
 
             new Thread(() =>
             {

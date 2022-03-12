@@ -56,7 +56,6 @@ namespace Ruby.Cafe.Database
                 {
                     cmd = new SqlCommand("CREATE DATABASE " + Database, connection);
                     cmd.ExecuteNonQuery();
-
                 }
 
                 connection.Close();

@@ -4,8 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:xtk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Compatible;assembly=System.Windows.Controls.DataVisualization.Toolkit"
-      xmlns:dvcp="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       xmlns:Controls="clr-namespace:Ruby.Cafe.Common.Controls"
       xmlns:local="clr-namespace:Ruby.Cafe.Common.Screens"
       mc:Ignorable="d" 
@@ -89,8 +87,6 @@
                 </Grid>
                 <!-- Graphs are over here -->
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <dvc:ColumnSeries x:Name="CSeries">
-                    </dvc:ColumnSeries>
                 </StackPanel>
             </Grid>
         </Grid>
