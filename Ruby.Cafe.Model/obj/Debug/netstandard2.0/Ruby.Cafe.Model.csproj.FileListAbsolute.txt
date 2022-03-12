@@ -1,0 +1,10 @@
+D:\Projects\Ruby\Ruby.Cafe.Model\bin\Debug\netstandard2.0\Ruby.Cafe.Model.deps.json
+D:\Projects\Ruby\Ruby.Cafe.Model\bin\Debug\netstandard2.0\Ruby.Cafe.Model.dll
+D:\Projects\Ruby\Ruby.Cafe.Model\bin\Debug\netstandard2.0\Ruby.Cafe.Model.pdb
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.csproj.AssemblyReference.cache
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.AssemblyInfoInputs.cache
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.AssemblyInfo.cs
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.csproj.CoreCompileInputs.cache
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.dll
+D:\Projects\Ruby\Ruby.Cafe.Model\obj\Debug\netstandard2.0\Ruby.Cafe.Model.pdb

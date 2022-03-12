@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ap7YVRQNnE8v/xcoU5bde8mEsQfAV/eZlV1A+89NAG9BQwlbJx7ZoldaQN9VURKXGh+G6acZUJNi8e2uASb3ng==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\canbe\\Desktop\\Projects\\Ruby\\Ruby.Cafe.Model\\Ruby.Cafe.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\canbe\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\canbe\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

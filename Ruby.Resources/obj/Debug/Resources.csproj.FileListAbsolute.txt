@@ -1,0 +1,15 @@
+D:\Projects\Ruby\Ruby.Resources\bin\Debug\Ruby.Resources.dll
+D:\Projects\Ruby\Ruby.Resources\bin\Debug\Ruby.Resources.pdb
+D:\Projects\Ruby\Ruby.Resources\bin\Debug\en\Ruby.Resources.resources.dll
+D:\Projects\Ruby\Ruby.Resources\bin\Debug\tr\Ruby.Resources.resources.dll
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Resources.csproj.AssemblyReference.cache
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.g.resources
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.Localization.resources
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.Localization.en.resources
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.Localization.tr.resources
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Resources.csproj.GenerateResource.cache
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Resources.csproj.CoreCompileInputs.cache
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\en\Ruby.Resources.resources.dll
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\tr\Ruby.Resources.resources.dll
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.dll
+D:\Projects\Ruby\Ruby.Resources\obj\Debug\Ruby.Resources.pdb
