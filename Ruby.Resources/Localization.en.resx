@@ -764,4 +764,10 @@ these settings...</value>
   <data name="MB_RoleHasEmployeesTitle" xml:space="preserve">
     <value>Failed to remove role</value>
   </data>
+  <data name="SetupScreen_EmployeeRequired" xml:space="preserve">
+    <value>There is no employee found, please add employees to continue</value>
+  </data>
+  <data name="SetupScreen_NoAdminFound" xml:space="preserve">
+    <value>There is no admin employee found, please add admin to continue</value>
+  </data>
 </root>

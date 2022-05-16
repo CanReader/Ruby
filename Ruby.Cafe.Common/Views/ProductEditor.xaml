@@ -186,97 +186,99 @@
             </Style>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid x:Name="Content" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.Resources>
-        </Grid.Resources>
+    <Grid x:Name="Wrapper">
+        <Grid x:Name="Content" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+            </Grid.Resources>
 
-        <TreeView x:Name="Producter" Margin="30,20,30,60" Background="#aaaaaa" VerticalAlignment="Stretch" BorderThickness="0"  Grid.Column="0" SelectedItemChanged="PickAProduct">
-        </TreeView>
+            <TreeView x:Name="Producter" Margin="30,20,30,60" Background="#aaaaaa" VerticalAlignment="Stretch" BorderThickness="0"  Grid.Column="0" SelectedItemChanged="PickAProduct">
+            </TreeView>
 
-        <StackPanel Grid.Column="1" Margin="0,50,0,30"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Vertical">
-            <Grid Margin="0,20,0,0">
-                <TextBox x:Name="ProductNameBox" Text="Product Name" HorizontalAlignment="Center" Margin="0,0,300,0"  TextChanged="Changed"/>
-                <TextBox x:Name="CategoryName" Margin="300,0,0,0"  Text="Category Name" TextChanged="Changed"/>
-            </Grid>
-            <Grid Margin="0,40,0,0">
-                <TextBox x:Name="TaxBox"  Margin="0,0,300,0" Text="Tax" TextChanged="Changed" KeyDown="AvoidChar"/>
-                <TextBox x:Name="Barcode"   Margin="330,0,0,0" Text="Barcode" TextChanged="Changed"/>
-            </Grid>
-            <Grid Margin="0,40,0,0">
-                <TextBox x:Name="ServingBox" FontSize="28" Style="{x:Null}" VerticalContentAlignment="Center" Padding="3" HorizontalAlignment="Left" TextAlignment="Center" Margin="30,0,0,0" Text="Serving" Foreground="Black" Opacity="10"  Width="220" TextChanged="Changed"/>
-                <TextBox x:Name="QuantityBox" FontSize="24" Style="{x:Null}" Padding="3"  HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,40,0" Text="Quantity" VerticalContentAlignment="Center" Foreground="Black" Opacity="10"  Width="260" TextChanged="Changed" KeyDown="AvoidChar"/>
-                <TextBox x:Name="PriceBox" FontSize="24" Style="{x:Null}" Padding="3"  HorizontalAlignment="Right" TextAlignment="Center" Margin="0,0,30,0" Text="Price" VerticalContentAlignment="Center" Foreground="Black" Opacity="10"  Width="260" KeyDown="AvoidChar" TextChanged="Changed"/>
-            </Grid>
-            <Grid Margin="40,10,40,0" HorizontalAlignment="Stretch" Height="280">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="143*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width ="4*"/>
-                    <ColumnDefinition Width ="1*"/>
-                </Grid.ColumnDefinitions>
-                <DataGrid x:Name="ServingLister" Background="#FFA6A6A6" HorizontalAlignment="Center" VerticalScrollBarVisibility="Visible" IsReadOnly="False" CanUserAddRows="False" CanUserSortColumns="True" VerticalAlignment="Stretch"  MaxHeight="250" Grid.RowSpan="2">
-                    <!--Row Header Style-->
-                    <DataGrid.RowHeaderStyle>
-                        <Style TargetType="DataGridRowHeader">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DataGrid.RowHeaderStyle>
-                    <!--Row Header Style-->
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Background" Value="Teal"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="SeparatorBrush" Value="Blue"/>
-                            <Setter Property="FontSize" Value="18"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="SeparatorVisibility" Value="Visible"/>
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Setter Property="Background" Value="AliceBlue"/>
-                            <Setter Property="FontSize" Value="18"/>
-                            <Setter Property="Margin" Value="0,2,0,0"/>
-                            <Setter Property="BorderBrush" Value="Transparent"/>
-                        </Style>
-                    </DataGrid.RowStyle>
-                    <DataGridTextColumn CanUserResize="True" CanUserSort="True" IsReadOnly="False"/>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Serving}" Header="Serving" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding Price}" Header="Price" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0,0,63" Width="80" Height="80"  Grid.Column="1" MouseDown="AddServing" >
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_PlusBtn.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
+            <StackPanel Grid.Column="1" Margin="0,50,0,30"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Vertical">
+                <Grid Margin="0,20,0,0">
+                    <TextBox x:Name="ProductNameBox" Text="Product Name" HorizontalAlignment="Center" Margin="0,0,300,0"  TextChanged="Changed"/>
+                    <TextBox x:Name="CategoryName" Margin="300,0,0,0"  Text="Category Name" TextChanged="Changed"/>
+                </Grid>
+                <Grid Margin="0,40,0,0">
+                    <TextBox x:Name="TaxBox"  Margin="0,0,300,0" Text="Tax" TextChanged="Changed" KeyDown="AvoidChar"/>
+                    <TextBox x:Name="Barcode"   Margin="330,0,0,0" Text="Barcode" TextChanged="Changed"/>
+                </Grid>
+                <Grid Margin="0,40,0,0">
+                    <TextBox x:Name="ServingBox" FontSize="28" Style="{x:Null}" VerticalContentAlignment="Center" Padding="3" HorizontalAlignment="Left" TextAlignment="Center" Margin="30,0,0,0" Text="Serving" Foreground="Black" Opacity="10"  Width="220" TextChanged="Changed"/>
+                    <TextBox x:Name="QuantityBox" FontSize="24" Style="{x:Null}" Padding="3"  HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,40,0" Text="Quantity" VerticalContentAlignment="Center" Foreground="Black" Opacity="10"  Width="260" TextChanged="Changed" KeyDown="AvoidChar"/>
+                    <TextBox x:Name="PriceBox" FontSize="24" Style="{x:Null}" Padding="3"  HorizontalAlignment="Right" TextAlignment="Center" Margin="0,0,30,0" Text="Price" VerticalContentAlignment="Center" Foreground="Black" Opacity="10"  Width="260" KeyDown="AvoidChar" TextChanged="Changed"/>
+                </Grid>
+                <Grid Margin="40,10,40,0" HorizontalAlignment="Stretch" Height="280">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="143*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="4*"/>
+                        <ColumnDefinition Width ="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="ServingLister" Background="#FFA6A6A6" HorizontalAlignment="Center" VerticalScrollBarVisibility="Visible" IsReadOnly="False" CanUserAddRows="False" CanUserSortColumns="True" VerticalAlignment="Stretch"  MaxHeight="250" Grid.RowSpan="2">
+                        <!--Row Header Style-->
+                        <DataGrid.RowHeaderStyle>
+                            <Style TargetType="DataGridRowHeader">
+                                <Setter Property="Width" Value="0"/>
+                            </Style>
+                        </DataGrid.RowHeaderStyle>
+                        <!--Row Header Style-->
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="Teal"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="SeparatorBrush" Value="Blue"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="SeparatorVisibility" Value="Visible"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Background" Value="AliceBlue"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="Margin" Value="0,2,0,0"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGridTextColumn CanUserResize="True" CanUserSort="True" IsReadOnly="False"/>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Serving}" Header="Serving" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Price}" Header="Price" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0,0,63" Width="80" Height="80"  Grid.Column="1" MouseDown="AddServing" >
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_PlusBtn.png" Stretch="Uniform"/>
+                        </Rectangle.Fill>
 
-                </Rectangle>
-                <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,120,0,25" Width="70" Height="30"  Grid.Column="1" MouseDown="RemoveServing" Grid.RowSpan="2">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_MinusBtn.png" Stretch="Uniform"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-            </Grid>
-            <StackPanel Margin="0,50,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="SaveProductBtn" Content="Save Product" Width="170" HorizontalAlignment="Right"  Margin="0,5,100,0" Click="SaveProduct"/>
-                <Button x:Name="RemoveProductBtn" Margin="0,0,0,0" Content="Remove Product" Width="170" Click="RemoveSelectedProduct"/>
+                    </Rectangle>
+                    <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,120,0,25" Width="70" Height="30"  Grid.Column="1" MouseDown="RemoveServing" Grid.RowSpan="2">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/Ruby.Resources;Component/IMG/IMG_UI_MinusBtn.png" Stretch="Uniform"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <StackPanel Margin="0,50,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="SaveProductBtn" Content="Save Product" Width="170" HorizontalAlignment="Right"  Margin="0,5,100,0" Click="SaveProduct"/>
+                    <Button x:Name="RemoveProductBtn" Margin="0,0,0,0" Content="Remove Product" Width="170" Click="RemoveSelectedProduct"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
 
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="30,0,30,10" Grid.Column="1">
-            <Button x:Name="EditProductBtn" Content="Edit Product" FontSize="30" Margin="0,0,40,0" Click="EditSelectedProduct" Visibility="Collapsed"/>
-            <Button x:Name="CopyProductBtn" Content="Create Copy"  FontSize="30" Margin="0,0,40,0" Click="CopySelectedProduct" Visibility="Collapsed"/>
-        </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="30,0,30,10" Grid.Column="1">
+                <Button x:Name="EditProductBtn" Content="Edit Product" FontSize="30" Margin="0,0,40,0" Click="EditSelectedProduct" Visibility="Collapsed"/>
+                <Button x:Name="CopyProductBtn" Content="Create Copy"  FontSize="30" Margin="0,0,40,0" Click="CopySelectedProduct" Visibility="Collapsed"/>
+            </StackPanel>
 
-        <TextBlock x:Name="PMessage" Text="{Binding}" Foreground="Green" FontSize="46" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,-62" Visibility="Collapsed"/>
+            <TextBlock x:Name="PMessage" Text="{Binding}" Foreground="Green" FontSize="46" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,-62" Visibility="Collapsed"/>
 
+        </Grid>
     </Grid>
 </Page>

@@ -16,6 +16,7 @@ namespace RubyCafePresentation
     public partial class MainWindow : NavigationWindow
     {
         private History HistoryInstance;
+    
         public IDatabase Dbase = null;
         private MainPage mp = null;
         
@@ -78,11 +79,11 @@ namespace RubyCafePresentation
 
             String MachineName = "";
 
-            if (System.IO.File.Exists("Settings.ini") && System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\RubySoft\Database.dat"))
+            //Check if it should enter in setup mode or not
+            if (System.IO.File.Exists("Settings.ini") && 
+                System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\RubySoft\Database.dat"))
             {
                 setter = new Ruby.Serialization.Settings(true);
-
-                String.Copy(setter.MachineName);
 
                 var Version = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
@@ -99,11 +100,7 @@ namespace RubyCafePresentation
             Console.WriteLine("Current working mode: RELEASE mode");
 #endif
 
-                Console.WriteLine("Attempting to connect the database, Database Type = " + ((DatabaseType)setter.dbType).ToString());
-
-                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-                sw.Start();
-
+                //Set the language for usage
                 switch (setter.Language)
                 {
                     case 0:
@@ -126,7 +123,10 @@ namespace RubyCafePresentation
                         break;
                 }
                 Ruby.Resources.Localization.Culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+                
+                Console.WriteLine("Attempting to connect the database, Database Type = " + ((DatabaseType)setter.dbType).ToString());
 
+                //Connect to the database, show the error if an occurs
                 try
                 {
                     Dbase = new Ruby.Serialization.DatabaseSetting(true).InitializeDB(Ruby.Serialization.DatabaseSetting.type);
@@ -144,16 +144,13 @@ namespace RubyCafePresentation
                     Application.Current.Shutdown();
                     return;
                 }
-
-                sw.Stop();
-
        
                 mp = new MainPage(Dbase,HistoryInstance);
+
                 this.Navigate(mp);
+
             HistoryInstance.SendMessage(Ruby.Cafe.Model.ScreenEnum.MAINPAGE, Ruby.Cafe.Model.MessageType.NOTIFICATION, string.Format(Ruby.Resources.Localization.NOTIF_OpenedApp, MachineName));
-              
             }
-            
             else
             {
                 Ruby.Setup.SetupWindow sw = new Ruby.Setup.SetupWindow();
@@ -163,6 +160,7 @@ namespace RubyCafePresentation
                 this.Close();
             }
 
+            //Release settings class
             if(setter != null)
             setter.Dispose();
 

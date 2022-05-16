@@ -74,10 +74,11 @@ namespace Ruby.Cafe.Common.Controls
 
         private void Okay(object sender, RoutedEventArgs e)
         {
-            string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +"/RubySoft/RubyCafe/" + GenerateLogFileName(DateTime.Now) + ".txt";
+            string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\RubySoft\" + GenerateLogFileName(DateTime.Now) + ".txt";
 
             if (!System.IO.File.Exists(FolderPath))
-                System.IO.File.Create(FolderPath);
+                System.IO.File.Create(FolderPath).Close();
+
 
             List<string> FileStrings = new List<string>();
 

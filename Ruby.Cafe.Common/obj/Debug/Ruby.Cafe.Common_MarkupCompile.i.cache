@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\Projects\Ruby\Ruby.Cafe.Common\obj\Debug\
+C:\Users\canbe\Desktop\Projects\Ruby\Ruby.Cafe.Common\obj\Debug\
 Ruby.Cafe.Common
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 191113087156
 
 21-369348055
-28-796659780
+30-658579239
 Controls\ButtonCard.xaml;Controls\MB_MessageBox.xaml;Controls\Navigator.xaml;Controls\TableControl.xaml;Css\OutlineComboBox.xaml;Css\OutlinePasswordBox.xaml;Controls\MB_ExceptionBox.xaml;HistoryCard.xaml;Views\AdminScreen.xaml;Views\EmployeeEditor.xaml;Views\HistoryManager.xaml;Views\LoginPage.xaml;Views\MainPage.xaml;Views\ProductEditor.xaml;Views\SettingsPage.xaml;Views\TableEditor.xaml;Css\OutlineButton.xaml;Css\OutlineTextbox.xaml;Views\TicketPage.xaml;
 
 True

@@ -79,10 +79,13 @@ namespace Ruby.Setup.Views
 
         private void NextPage(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(MachNameBox.Text) || string.IsNullOrWhiteSpace(OrgNameBox.Text) || string.IsNullOrWhiteSpace(WidthBox.Text) || string.IsNullOrWhiteSpace(HeightBox.Text) || OrgTypeBox.SelectedIndex == -1 || LanguageBox.SelectedIndex == -1)
-                return;
+            NextBtn.IsEnabled = false;
+            Brush btnBrush = NextBtn.Background; 
 
-            System.Threading.Thread.Sleep(2000);
+            NextBtn.Background = new SolidColorBrush(Color.FromRgb(84,84,84));
+
+            if (!(string.IsNullOrWhiteSpace(MachNameBox.Text) || string.IsNullOrWhiteSpace(OrgNameBox.Text) || string.IsNullOrWhiteSpace(WidthBox.Text) || string.IsNullOrWhiteSpace(HeightBox.Text) || OrgTypeBox.SelectedIndex == -1 || LanguageBox.SelectedIndex == -1))
+            { 
 
             try
             {
@@ -119,6 +122,10 @@ namespace Ruby.Setup.Views
             }
 
             MainWindow.Content = MainWindow.databases;
+
+            NextBtn.Background = btnBrush;
+            NextBtn.IsEnabled = true;
+            }
         }
     }
 }

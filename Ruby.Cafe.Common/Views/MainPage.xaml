@@ -50,6 +50,9 @@
             </Rectangle>
         </Grid>
         <Canvas x:Name="TablePanel" Width="Auto" Height="Auto" Grid.Row="1">
-                </Canvas>
+        </Canvas>
+        <Grid x:Name="BottomPanel" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="2" Background="#40508d">
+            <Label x:Name="ClockCounter" Content="HH:MM:SS" Foreground="Black" HorizontalAlignment="Right" FontSize="28" Margin="0,0,30,0"/>
+        </Grid>
     </Grid>
 </Page>

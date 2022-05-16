@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
@@ -40,8 +41,8 @@ namespace Ruby.Cafe.Common.Screens
             }
         }
 
-        private Grid _activegrid;
-        private Grid ActiveGrid
+       private UniformGrid _activegrid;
+       private UniformGrid ActiveGrid
         {
             get
             {
@@ -69,7 +70,7 @@ namespace Ruby.Cafe.Common.Screens
        public List<Employee> EmployeeList;
        public List<Role> Roles;
 
-       private List<Grid> ScenceControls;
+       private List<UniformGrid> ScenceControls;
 
         #endregion
 
@@ -80,12 +81,12 @@ namespace Ruby.Cafe.Common.Screens
         /// </summary>
         /// <param name="Scene">Scence object which will be matched with the canvas</param>
         /// <returns>Canvas</returns>
-        private Grid CreateScenceCanvas(Scence scence)
+        private UniformGrid CreateScenceCanvas(Scence scence)
         {
-            Grid kanvas = new Grid();
+            UniformGrid kanvas = new UniformGrid();
          
-           kanvas.Width = this.ActualWidth;
-           kanvas.Height = this.ActualHeight - UpperPanel.ActualHeight;
+            kanvas.Width = this.ActualWidth;
+            kanvas.Height = this.ActualHeight - UpperPanel.ActualHeight;
 
             kanvas.Margin = new Thickness(0, 0, 0, 0);
             kanvas.Background = TablePanel.Background;
@@ -120,107 +121,34 @@ namespace Ruby.Cafe.Common.Screens
                 Ruby.Cafe.Common.Controls.MessageBox.ShowMessageBox(Ruby.Resources.Localization.MB_LockedTableTitle, Ruby.Resources.Localization.MB_LockedTableMessage,MessageBoxButton.OK,MessageBoxImage.None);
         }
 
-        //TODO: Will be edited
-        private void DisplayTableCards(Grid grid, Scence scence)
+        private void PlayGridAnimation(UniformGrid grid)
         {
-
-            grid.Children.Clear();
-            grid.RowDefinitions.Clear();
-            grid.ColumnDefinitions.Clear();
-
-            List<Table> ConditionalTableList = TableList.Where(p => p.TableScence == scence.Name && p.Checks[0]).ToList();
-
-            if (ConditionalTableList.Count == 0)
-                return;
-
-            int CellNumber = ConditionalTableList.Count;
-
-            if (CellNumber % 2 == 1 && Math.Sqrt(CellNumber) % 1 != 0)
-                CellNumber++;
-
-            grid.ShowGridLines = true;
-
-            #region Define Constant
-            int c = 0;
-            if (Math.Sqrt(CellNumber + 1) % 1 == 0)
-                c = 1;
-            else if (Math.Sqrt(CellNumber + 2) % 1 == 0)
-                c = 2;
-            else if (Math.Sqrt(CellNumber + 3) % 1 == 0)
-                c = 3;
-            else if (Math.Sqrt(CellNumber + 4) % 1 == 0)
-                c = 4;
-            #endregion
-
-            // Calculate in square matrix
-            if (Math.Sqrt(CellNumber + c) % 1 == 0)
-            {
-                for (int a = 0; a < Math.Sqrt(CellNumber); a++)
-                {
-                    grid.RowDefinitions.Add(new RowDefinition());
-                    grid.ColumnDefinitions.Add(new ColumnDefinition());
-                }
-
-            }
-            //Find closest two integers' product
-            else
-            {
-                int RowCells = CellNumber - 1;
-
-                List<int[]> Multipliers = new List<int[]>();
-
-                bool found = false;
-                while (!found)
-                {
-                 Multipliers.Clear();
-                 for (int m = CellNumber; m > 0; m--)
-                 {
-                        if ((Math.Abs(m - CellNumber / m) <= 6))
-                        {
-                            RowCells = m;
-                            found = true;
-                        }
-                 }
-                    CellNumber++;
-                }
-
-                foreach (var item in Multipliers)
-                    if (Math.Abs(item[1] - item[0]) <= 6)
-                    { RowCells = item[1]; break; }
-
-                for (int ad = 0; ad < RowCells; ad++)
-                    grid.RowDefinitions.Add(new RowDefinition());
-                for (int ad = 0; ad < CellNumber/RowCells; ad++)
-                    grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-            }
-
-            #region Add TableControls into cells
-            int i = 0;
-            int j = 0;
-            for (int k = 0; k < ConditionalTableList.Count; k++)
-            {
-            TableControl tb = new TableControl(ConditionalTableList[k]);
-            tb.Width = this.ActualWidth/grid.ColumnDefinitions.Count;
-            tb.Height = (this.ActualHeight-UpperPanel.ActualHeight)/grid.RowDefinitions.Count;
-
-            tb.MouseDown += (ssender, ee) => OpenTicketPage(((TableControl)ssender).table);
-
-            grid.Children.Add(tb);
-            Grid.SetRow(tb,i);
-            Grid.SetColumn(tb,j);
-
-                j++;
-
-                if (j == grid.ColumnDefinitions.Count)
-                {
-                    j = 0;
-                    i = i + 1;
-                }
-            }
-            #endregion
+            
         }
 
+        private void DisplayTableCards(UniformGrid grid, Scence scence)
+        {
+            grid.Children.Clear();
+
+            TableList = TableList.Where(p => p.TableScence == scence.Name && p.Checks[0]).ToList();
+
+            if (DisplayTableList.Count == 0)
+                return;
+
+            #region Add TableControls into cells
+
+            foreach (var item in DisplayTableList)
+            { 
+                TableControl tb = new TableControl(item);
+                grid.Children.Add(tb);
+           
+                tb.MouseDown += (ssender, ee) => OpenTicketPage(((TableControl)ssender).table);
+            }
+            #endregion
+
+            PlayGridAnimation(grid);
+        }
+    
         /// <summary>
         /// Main page's constructor method
         /// </summary>
@@ -251,7 +179,7 @@ namespace Ruby.Cafe.Common.Screens
         private void CreatedEvent(object sender, RoutedEventArgs e)
         {
             #region Initializations
-            if(ScenceControls == null)ScenceControls = new List<Grid>();
+            if(ScenceControls == null)ScenceControls = new List<UniformGrid>();
             if(DisplayTableList == null)DisplayTableList = new List<Table>();
 
             Scences      = Dbase.GetScenceList();
@@ -315,6 +243,11 @@ namespace Ruby.Cafe.Common.Screens
             }
         }
 
+        /// <summary>
+        /// Routes the user to add some tables in table editor
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Event arg</param>
         private void QuickTableEditor(object sender, RoutedEventArgs e)
         {
             Panel.toScreen = ScreenEnum.TABLEEDITOR;
@@ -347,6 +280,11 @@ namespace Ruby.Cafe.Common.Screens
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Changes the current scene and refreshes the table list
+        /// </summary>
+        /// <param name="sender">Rectangle</param>
+        /// <param name="e">MouseButtonEventArgs</param>
         private void PrevScenceBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
 #if DEBUG
@@ -369,6 +307,11 @@ namespace Ruby.Cafe.Common.Screens
 
         }
 
+        /// <summary>
+        /// Changes the current scene and refreshes the table list
+        /// </summary>
+        /// <param name="sender">Rectangle</param>
+        /// <param name="e">MouseButtonEventArgs</param>
         private void NextScenceBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
 #if DEBUG

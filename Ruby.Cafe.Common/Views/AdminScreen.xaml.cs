@@ -8,7 +8,10 @@ using Ruby.Cafe.Model;
 namespace Ruby.Cafe.Common.Screens
 {
     /// <summary>
-    /// Interaction logic for AdminScreen.xaml
+    /// Purpose:
+    /// Admin screen is core part of the RubyCafe. This class lives until program is shutted down. The main responsibility of the Admin screen/panel is carrying the pages that manages the application. The panel is only reachable by admin users, and when a user attempts to log in the panel, firstly permissions is checked. If they have correct permission for that they can enter. When a user enters, automatically gets redirect to history page.
+    /// 
+    /// The navigation events of the admin screen happens thanks to navigation panel at top of the content part of the page. Navigation panel just contains return button, page cards, settings tab.
     /// </summary>
     public partial class AdminScreen : Page
     {
@@ -32,6 +35,12 @@ namespace Ruby.Cafe.Common.Screens
         public List<Scence> Scences;
         public List<Table> Tables;
 
+        /// <summary>
+        /// Constructor of the AdminScreen
+        /// 
+        /// </summary>
+        /// <param name="database"></param>
+        /// <param name="HistoryInstance"></param>
         public AdminScreen(Database.IDatabase database, History HistoryInstance)
         {
             InitializeComponent();
@@ -66,7 +75,6 @@ namespace Ruby.Cafe.Common.Screens
                 nv.Navigate(new LoginPage(this, PageMain,db) {HistoryInstance = this.HistoryManager }); 
             else
             {
-
                 if (PageMain == null) PageMain = new MainPage(db, HistoryManager);
 
                 Scences = PageMain.Scences;

@@ -1712,7 +1712,40 @@ SqlCommand cmd = new SqlCommand("SELECT * FROM Tickets WHERE TableID = " + table
             return Total;
         }
 
+        public Category GetCategory(string CategoryName)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void SendHistoryMessage(string Message, int MessageType, DateTime MessageDate, int EmployeeID, string AuthCode, int screen, int? ProductID, int? TableID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Scence GetScence(int SceneID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product GetProduct(int ProductID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category GetCategory(int CategoryID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProductList()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDatabase.DeleteTicketProduct(int TableID, int ProductID)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public static class SqlHelper

@@ -34,12 +34,12 @@ namespace Ruby.Setup.Views
                     return $"server={ServerNameBox.Text};uid={UserNameBox.Text};pwd={PasswordBox.Text};database={DatabaseNameBox.Text}";
 
                 else if (DBTypeBox.SelectedIndex == 3) //SqlLite
-                    return $"Data Source={ServerNameBox.Text}; Version={UserNameBox.Text}";
+                    return $"Data Source={ServerNameBox.Text}+{DatabaseNameBox.Text}; Version={UserNameBox.Text}";
 
                 else if (DBTypeBox.SelectedIndex == 4) //Oracle
-                    return "";
+                    return "This database management system is not supported yet";
                 else
-                    return "";
+                    return "This database management system is not supported yet";
             }
         }
 
@@ -77,7 +77,12 @@ namespace Ruby.Setup.Views
 
         public void NextPage(object sender, RoutedEventArgs e)
         {
-            System.Threading.Thread.Sleep(2000);
+            NextBtn.IsEnabled = false;
+            Brush btnBrush = NextBtn.Background;
+
+            NextBtn.Background = new SolidColorBrush(Color.FromRgb(84, 84, 84));
+
+            System.Threading.Thread.Sleep(1600);
 
             if (DBTypeBox.SelectedIndex != -1 && !string.IsNullOrWhiteSpace(ServerNameBox.Text) && !string.IsNullOrWhiteSpace(DatabaseNameBox.Text) && !string.IsNullOrWhiteSpace(UserNameBox.Text) && !string.IsNullOrWhiteSpace(PasswordBox.Text))
             {
@@ -89,13 +94,16 @@ namespace Ruby.Setup.Views
             MainWindow.UserName = UserNameBox.Text;
             MainWindow.Password = PasswordBox.Text;
 
-
             MainWindow.Content = MainWindow.firsts;
             }
             else
             {
                 //Do nothing
             }
+
+            NextBtn.IsEnabled = true;
+
+            NextBtn.Background = btnBrush;
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -111,7 +119,7 @@ namespace Ruby.Setup.Views
         {
             switch (DBTypeBox.SelectedIndex)
             {
-                case -1: case 0:
+                case -1: case 0: //Null&None
                     ServerNameBox.IsReadOnly = true;
                     DatabaseNameBox.IsReadOnly = true;
                     UserNameBox.IsReadOnly = true;
@@ -147,8 +155,11 @@ namespace Ruby.Setup.Views
                     PasswordBox.Visibility = Visibility.Hidden;
                     ConnectionStringTxt.Visibility = Visibility.Hidden;
 
-                    ServerNameBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/RubySoft/RubyCafe";
+
+                    ServerNameBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                    DatabaseNameBox.Text = "/RubySoft/RubyCafe";
                     UserNameBox.Text = "3";
+                    PasswordBox.Text = "NULL";
 
                     ConnectionStringTxt.Text = string.Format(Ruby.Resources.Localization.SettingsPage_DefaultConnectionStringTxt, ConnectionString); 
                     break;

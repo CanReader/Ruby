@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ruby.Setup"
         mc:Ignorable="d"
-        Title="SetupWindow" Height="600" Width="1080" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal">
-    <Grid>
+        Title="SetupWindow" Height="600" Width="1080" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal" Background="Transparent" AllowsTransparency="True">
+    <Grid Background="White" Margin="50">
+        <Grid.Effect>
+            <!--Color="#FF2B2929"-->
+            <DropShadowEffect  Direction="20" BlurRadius="15" ShadowDepth="1" RenderingBias="Quality" Color="#FF2B2929" Opacity="0.4"/>
+        </Grid.Effect>
         <TextBlock Opacity="0" FontFamily="Lucida Bright" Foreground="Gray" x:Name="WelcomeText" Text="Welcome to RubySoft" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="41" Loaded="WelcomeText_Loaded" TextWrapping="Wrap"/>
     </Grid>
 </Window>

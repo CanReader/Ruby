@@ -32,7 +32,7 @@ namespace Ruby.Serialization
                     else
                         return new Sql(ServerName, DatabaseName);
                 case DatabaseType.MySql: return null;
-                case DatabaseType.Sqlite: return null;
+                case DatabaseType.Sqlite: return new SqlLite();
                 case DatabaseType.Oracle: return null;
                 default: return null;
             }

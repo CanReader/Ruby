@@ -15,6 +15,8 @@ namespace Ruby.Cafe.Database
 
         void InitializeDBTables();
 
+        bool CheckDBTable(string TableName);
+
         void AddScences(string ScenceName);
 
         void AddTable(string TableName, Model.Scence scence, string TableType, string TableColor, int MaxChair,string Checks, int Statue, string Description);
@@ -31,19 +33,33 @@ namespace Ruby.Cafe.Database
 
         void AddRole(string RoleName, bool[] Perms);
 
-        void SendHistoryMessage(string Message, int MessageType, System.DateTime MessageDate, string AuthCode, int screen, int? ProductID, int? TableID);
+        void SendHistoryMessage(string Message, int MessageType, System.DateTime MessageDate,int EmployeeID, string AuthCode, int screen, int? ProductID, int? TableID);
 
+        Model.Scence GetScence(int SceneID);
+        
         Model.Scence GetScence(string ScenceName);
+
+        Model.Table GetTable(int TableID);
 
         Model.Table GetTable(string TableName);
 
+        Model.Role GetRole(int RoleID);
+        
+        Model.Role GetRole(string RoleName);
+        
+        Model.Employee GetEmployee(int EmployeeID);
+
         Model.Employee GetEmployee(string AuthCode);
 
-        Model.Role GetRole(string RoleName);
+        Model.Product GetProduct(int ProductID);
 
         Model.Product GetProduct(string ProductName);
 
         Model.Ticket GetTicket(Model.Table table);
+
+        Model.Category GetCategory(int CategoryID);
+
+        Model.Category GetCategory(string CategoryName);
 
         void DeleteScence(string ScenceName);
 
@@ -61,17 +77,15 @@ namespace Ruby.Cafe.Database
 
         void DeleteTicket(Model.Table table);
 
-        bool CheckDBTable(string TableName);
-
         List<Model.Scence> GetScenceList();
 
         List<Model.Table> GetTableList(List<Model.Scence> Scences);
 
         List<Model.Category> GetCategoryList();
 
-        List<Ruby.Cafe.Model.Role> GetRoleList();
+        List<Model.Role> GetRoleList();
 
-        List<Model.Product> GetProductList(List<Model.Category> Categories);
+        List<Model.Product> GetProductList();
 
         List<Model.Employee> GetEmployeeList(List<Model.Role> Roles);
 
@@ -87,7 +101,7 @@ namespace Ruby.Cafe.Database
 
         void AddTicketProduct(int TicketID, Model.Product product, int ServingID, int Multiplier);
 
-        bool DeleteTicketProduct(int TableID, int ProductID);
+        void DeleteTicketProduct(int TableID, int ProductID);
 
         void UpdateTable(string TableName, String scence, string TableType, string TableColor, int MaxChair,string Checks, int Statue, string Description, string CTableName);
 

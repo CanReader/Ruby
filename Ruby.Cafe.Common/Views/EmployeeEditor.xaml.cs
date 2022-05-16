@@ -8,6 +8,12 @@ using System.Windows.Controls;
 
 namespace Ruby.Cafe.Common.Screens
 {
+    /// <summary>
+    /// Purpose:
+    /// EmployeeEditor is the page that changes the properties of the employees. There are just few operations in this page to manipulate employee abstraction: Adding Employee, Removing Employee, Edit Employee, Add Role, Remove Role, Refresh Lists, Clear UI.
+    /// All the employee properties are stated in the Employee Class
+    /// 
+    /// </summary>
     public partial class EmployeeEditor : Page
     {
         #region Variables

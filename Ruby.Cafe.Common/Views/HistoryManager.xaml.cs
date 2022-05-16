@@ -7,6 +7,9 @@ using System.Windows.Controls;
 
 namespace Ruby.Cafe.Common.Screens
 {
+    /// <summary>
+    /// History page (or HistoryManager) is the best spot to observe what happened in the business. The core reason of the application is making a good history management. This page presents the all analysis data to admin users.
+    /// </summary>
     public partial class HistoryManager : Page
     {
         #region Variables
@@ -40,10 +43,6 @@ namespace Ruby.Cafe.Common.Screens
             Timer.Tick += Timer_Tick;
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
-
-            Employees = db.GetEmployeeList(db.GetRoleList());
-            Tables = db.GetTableList(db.GetScenceList());
-            Products = db.GetProductList(db.GetCategoryList());
         }
 
         public void ClearUI()

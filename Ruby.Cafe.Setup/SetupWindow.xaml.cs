@@ -69,7 +69,7 @@ namespace Ruby.Setup
         }
 
         public void FadeIn(int Second)
-        {
+        {   
             this.Dispatcher.Invoke(() => WelcomeText.BeginAnimation(OpacityProperty, new DoubleAnimation(1, 0, TimeSpan.FromSeconds(Second))));
             this.Dispatcher.Invoke(() => WelcomeText.Opacity = 0);
         }
@@ -116,6 +116,8 @@ namespace Ruby.Setup
 
                 this.Dispatcher.Invoke(() =>
                 {
+                    db.InitializeDBTables();
+
                     foreach (var role in Roles)
                         db.AddRole(role.Name, role.Perms);
 

@@ -212,12 +212,33 @@ namespace Ruby.Setup.Views
         public void NextPage(object sender, RoutedEventArgs e)
         {
             if (Employees.Count == 0)
+            { 
+                MessageBox.Show(Ruby.Resources.Localization.SetupScreen_EmployeeRequired);
                 return;
+            }
+
+            if (Employees.Find(x => x.role.Perms[0]) == null)
+            {
+                MessageBox.Show(Ruby.Resources.Localization.SetupScreen_EmployeeRequired);
+                return;
+            }
 
             LastPage ls = new LastPage(MainWindow,Roles,Employees);
             MainWindow.Content = ls;
-
             
+        }
+
+        private void FillEmployee(Employee e)
+        {
+            EmpNameBox.Text = e.Name;
+            EmpSurnameBox.Text = e.Surname;
+            EmpGendrBox.SelectedIndex = e.Gender;
+            EmpMailBox.Text = e.Mail;
+            EmpAdressBox.Text = e.Adress;
+            StartDateBox.DisplayDate = e.StartDate;
+            EmpPhoneBox.Text = e.Phone;
+            EmpAuthCodeBox.Text = e.AuthCode;
+            RoleBox.SelectedItem = e.role;
         }
 
         private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -227,15 +248,8 @@ namespace Ruby.Setup.Views
 
             Employee emp = EmployeeList.SelectedItem as Employee;
 
-            EmpNameBox.Text = emp.Name;
-            EmpSurnameBox.Text = emp.Surname;
-            EmpGendrBox.SelectedIndex = emp.Gender;
-            EmpMailBox.Text = emp.Mail;
-            EmpAdressBox.Text = emp.Adress;
-            StartDateBox.DisplayDate = emp.StartDate;
-            EmpPhoneBox.Text = emp.Phone;
-            EmpAuthCodeBox.Text = emp.AuthCode;
-            RoleBox.SelectedItem = emp.role;
+            FillEmployee(emp);
+            
         }
     }
 }

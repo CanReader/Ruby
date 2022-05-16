@@ -19,7 +19,7 @@ namespace Ruby.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Localization {
@@ -1683,6 +1683,15 @@ namespace Ruby.Resources {
         /// <summary>
         ///   Looks up a localized string similar to NULL.
         /// </summary>
+        public static string SetupScreen_EmployeeRequired {
+            get {
+                return ResourceManager.GetString("SetupScreen_EmployeeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NULL.
+        /// </summary>
         public static string SetupScreen_EnjoyService {
             get {
                 return ResourceManager.GetString("SetupScreen_EnjoyService", resourceCulture);
@@ -1704,6 +1713,15 @@ namespace Ruby.Resources {
         public static string SetupScreen_GeneralSettingsTitle {
             get {
                 return ResourceManager.GetString("SetupScreen_GeneralSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NULL.
+        /// </summary>
+        public static string SetupScreen_NoAdminFound {
+            get {
+                return ResourceManager.GetString("SetupScreen_NoAdminFound", resourceCulture);
             }
         }
         

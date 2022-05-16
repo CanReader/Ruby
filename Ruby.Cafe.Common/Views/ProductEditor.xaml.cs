@@ -12,8 +12,17 @@ using System.Windows.Media;
 
 namespace Ruby.Cafe.Common.Screens
 {
+    /// <summary>
+    /// Every cafe/restaurant/cafe kind businesses should sell products to sustain their lives. ProductEditor pages provides to add/remove/edit products. There are just few operations in this page to manipulate products: Add Product, Remove Product, Edit Serving, Add Category, Remove Category, Add Serving, Remove Serving, Refresh Lists, Pause, DisplaySucessMessage, ClearUI 
+    /// </summary>
     public partial class ProductEditor : Page
     {
+        private struct TreeItem
+        {
+            Product product;
+            Category category;
+        }
+
         #region Variables
         public Ruby.Cafe.Common.History HistoryInstance;
         private Database.IDatabase db;
@@ -103,6 +112,9 @@ namespace Ruby.Cafe.Common.Screens
             return product;
         }
 
+        /// <summary>
+        /// Removes a selected product from the list
+        /// </summary>
         public void RemoveProduct()
         {
             if (ActiveProduct == null || !(Producter.SelectedItem is string))
@@ -125,7 +137,7 @@ namespace Ruby.Cafe.Common.Screens
                 }
                 catch (Exception)
                 {
-                    Ruby.Cafe.Common.Controls.MessageBox.ShowMessageBox(Ruby.Resources.Localization.MB_NumberedRequiredAreaTitle, string.Format(Ruby.Resources.Localization.MB_NumberedRequiredAreaMessage, TaxBox.Text), MessageBoxButton.OK, MessageBoxImage.Error);
+                    Ruby.Cafe.Common.Controls.MessageBox.ShowMessageBox(Ruby.Resources.Localization.    MB_NumberedRequiredAreaTitle, string.Format(Ruby.Resources.Localization.MB_NumberedRequiredAreaMessage, TaxBox.Text), MessageBoxButton.OK, MessageBoxImage.Error);
                     return null;
                 }
 
@@ -151,29 +163,57 @@ namespace Ruby.Cafe.Common.Screens
         }
 
         /// <summary>
-        /// Displays a text if creating of the product is sucessfull or not
+        /// When an error occurs, an error messages shows up
         /// </summary>
-        /// <param name="MessageToDisplay">The text which will be show below the window</param>
-        /// <param name="foreground">Color of the text</param>
-        private void DisplaySuccessMessage(string MessageToDisplay, Color foreground)
+        /// <param name="MessageToDisplay"></param>
+        /// <param name="font"></param>
+        /// <param name="foreground"></param>
+        /// <param name="StartLoc"></param>
+        /// <exception cref="Exception"></exception>
+        private void DisplaySuccessMessage(string MessageToDisplay, FontFamily font, Color foreground, VerticalAlignment StartLoc)
         {
-            PMessage.Visibility = Visibility.Visible;
-            PMessage.Text = MessageToDisplay;
-            PMessage.Foreground = new SolidColorBrush(foreground);
+            Thickness End;
 
-            var board = new System.Windows.Media.Animation.Storyboard();
-            var ta = new System.Windows.Media.Animation.ThicknessAnimation();
+            double Offset = (this.ActualHeight * 20) / 100;
 
-            ta.To = new Thickness(0, 0, 0, PMessage.Margin.Bottom + 75);
-            ta.Duration = TimeSpan.FromSeconds(1.3);
+            TextBlock tb = new TextBlock();
+            tb.Foreground = new SolidColorBrush(foreground);
+            tb.Text = MessageToDisplay;
+            tb.FontFamily = font;
+            tb.HorizontalAlignment = HorizontalAlignment.Center;
+            tb.FontSize = 24;
+            if (StartLoc == VerticalAlignment.Top)
+            {
+                tb.Margin = new Thickness(0, 0 - 60, 0, 0);
+                End = new Thickness(0, Offset, 0, 0);
+            }
+            else if (StartLoc == VerticalAlignment.Bottom)
+            {
+                tb.Margin = new Thickness(0, this.ActualHeight + 60, 0, 0);
+                End = new Thickness(0, this.ActualHeight - Offset, 0, 0);
+            }
+            else
+                throw new Exception("Only Top or Bottom alignments are allowed");
+            tb.TextAlignment = TextAlignment.Center;
 
-            board.Children.Add(ta);
-            System.Windows.Media.Animation.Storyboard.SetTargetName(ta, PMessage.Name);
-            System.Windows.Media.Animation.Storyboard.SetTargetProperty(ta, new PropertyPath(TextBlock.MarginProperty));
-            BeginStoryboard(board);
-            board.BeginAnimation(TextBlock.MarginProperty, ta);
+            Wrapper.Children.Add(tb);
 
-            PMessage.Visibility = Visibility.Collapsed;
+            var mAnim = new System.Windows.Media.Animation.ThicknessAnimation(tb.Margin, End, new Duration(TimeSpan.FromSeconds(1)));
+            mAnim.Completed += (s, e) =>
+            {
+                var t = new System.Threading.Thread(() =>
+                {
+                    System.Threading.Thread.Sleep(2000);
+                    Dispatcher.Invoke(() =>
+                    {
+                        var oAnim = new System.Windows.Media.Animation.DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.5)));
+                        tb.BeginAnimation(TextBlock.OpacityProperty, oAnim);
+                    });
+                });
+                t.Start();
+            };
+
+            tb.BeginAnimation(TextBlock.MarginProperty, mAnim);
         }
 
         /// <summary>
@@ -193,6 +233,16 @@ namespace Ruby.Cafe.Common.Screens
             ServingLister.Columns[1].Header= Ruby.Resources.Localization.ProductEditor_DefaultQuantityTxt;
             ServingLister.Columns[2].Header = Ruby.Resources.Localization.ProductEditor_DefaultPriceTxt;
 
+        }
+
+        private void PauseFor(double sec, UIElement Element)
+        {
+            Element.IsEnabled = false;
+
+            new System.Threading.Thread(() => {
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(sec));
+                Element.IsEnabled = true;
+            }).Start();
         }
 
         /// <summary>
@@ -221,6 +271,7 @@ namespace Ruby.Cafe.Common.Screens
         #endregion
 
         #region Events
+
         /// <summary>
         /// This event Happens when the page is loaded
         /// </summary>
@@ -231,7 +282,7 @@ namespace Ruby.Cafe.Common.Screens
             this.HistoryInstance.SendMessage(AccessedEmployee, ScreenEnum.PRODUCTEDITOR, MessageType.NOTIFICATION, Ruby.Resources.Localization.NOTIF_AccessedToScreen);
 
             CategoriesInstance = db.GetCategoryList();
-            ProductsInstance = db.GetProductList(CategoriesInstance);
+            ProductsInstance = db.GetProductList();
 
             ClearUI();
 
@@ -255,23 +306,51 @@ namespace Ruby.Cafe.Common.Screens
         /// <param name="e">Event argument</param>        
         private void SaveProduct(object sender, RoutedEventArgs e)
         {
+            /*
+             * 1.Check if nameboxes are null
+             * 2. Check if the product exists
+             */
+
             if (!(
                 string.IsNullOrWhiteSpace(ProductNameBox.Text) &&
                 string.IsNullOrWhiteSpace(CategoryName.Text) &&
                 string.IsNullOrWhiteSpace(TaxBox.Text)
                 ))
             {
-                /*
-                 * Check Category if it is exists
-                 * if 
-                 */
+               
                 if (double.TryParse(TaxBox.Text, out double tax))
                 {
                 Product p = CreateProduct(ProductNameBox.Text,CategoryName.Text,tax,Barcode.Text);
 
-                    if (p == null)
+                    if (p == null) //Means there exists named such a product
                     {
-                        Ruby.Cafe.Common.Controls.MessageBox.ShowMessageBox(Ruby.Resources.Localization.MB_AlreadyExistsTitle, Ruby.Resources.Localization.MB_AlreadyExistsMessage,MessageBoxButton.OK,MessageBoxImage.Error);
+                        PauseFor(3,SaveProductBtn);
+                        PauseFor(3,RemoveProductBtn);
+
+                        if (Producter.SelectedItem == null)
+                        {
+                            DisplaySuccessMessage(Ruby.Resources.Localization.MB_AlreadyExistsMessage, new FontFamily("Segoe UI"), Color.FromRgb(138, 7, 7), VerticalAlignment.Bottom);
+                            return;
+                        }
+
+                        //Create category if not exists
+                        if (!CategoriesInstance.Exists(c => c.Name == p.category.Name))
+                        {
+                            Category cat = new Category();
+
+                            cat.Name = CategoryName.Text;
+                            CategoriesInstance.Add(cat);
+                            db.AddCategory(cat.Name);
+
+                            Producter.Items.Add(new TreeViewItem() { Header = cat.Name, Style = (Style)(this.Resources["CategoryTemplate"]) });
+
+                            p.category = cat;
+
+                            HistoryInstance.SendMessage(AccessedEmployee, ScreenEnum.PRODUCTEDITOR, MessageType.PROCESS, string.Format(Ruby.Resources.Localization.PROCESS_CategoryCreated, cat.Name));
+                        }
+
+                        db.UpdateProduct(ProductNameBox.Text,CategoryName.Text,tax,Barcode,);
+
                         return;
                     }
 
@@ -329,6 +408,7 @@ namespace Ruby.Cafe.Common.Screens
         private void EditSelectedProduct(object sender, RoutedEventArgs e)
         {
         }
+
         /// <summary>
         /// Removes the product from list,serialized file and grid which is located on the producter
         /// </summary>
